@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Peach33 — A personal AI companion</title>
+  <meta name="description" content="Peach33 is a personal AI companion. One always-on AI, provisioned just for you. In private beta.">
+  <meta property="og:title" content="Peach33">
+  <meta property="og:description" content="A personal AI companion. In private beta — get early access.">
+  <meta property="og:url" content="https://peach33.com">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#FAF6EE">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Silkscreen:wght@400;700&family=Space+Grotesk:wght@400;500;600;700&display=swap">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="nav">
+    <a href="/" class="wordmark" aria-label="Peach33 home">Peach33</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-mark">
+        <svg class="pixel-peach" viewBox="0 0 16 16" aria-hidden="true" focusable="false" shape-rendering="crispEdges">
+          <g fill="#3F7A3F">
+            <rect x="9" y="1" width="3" height="1"/>
+            <rect x="8" y="2" width="4" height="1"/>
+            <rect x="9" y="3" width="2" height="1"/>
+          </g>
+          <rect x="7" y="3" width="1" height="2" fill="#6B3E2B"/>
+          <g fill="#FF6B47">
+            <rect x="4" y="4" width="7" height="1"/>
+            <rect x="3" y="5" width="9" height="1"/>
+            <rect x="2" y="6" width="11" height="1"/>
+            <rect x="2" y="7" width="11" height="1"/>
+            <rect x="2" y="8" width="11" height="1"/>
+            <rect x="2" y="9" width="11" height="1"/>
+            <rect x="2" y="10" width="11" height="1"/>
+            <rect x="3" y="11" width="9" height="1"/>
+            <rect x="4" y="12" width="7" height="1"/>
+            <rect x="5" y="13" width="5" height="1"/>
+          </g>
+          <g fill="#FF9171">
+            <rect x="3" y="6" width="2" height="1"/>
+            <rect x="2" y="7" width="2" height="1"/>
+            <rect x="2" y="8" width="1" height="1"/>
+          </g>
+          <g fill="#E85734">
+            <rect x="7" y="4" width="1" height="1"/>
+            <rect x="7" y="6" width="1" height="4"/>
+            <rect x="11" y="9" width="1" height="1"/>
+            <rect x="10" y="11" width="1" height="1"/>
+          </g>
+        </svg>
+        <span class="hero-eyebrow">Private Beta · 2026</span>
+      </div>
+      <h1 class="brand">Peach33</h1>
+      <p class="hero-sub">A personal AI companion. In private beta — get early access.</p>
+
+      <form id="waitlist" class="waitlist" action="https://formspree.io/f/xbdwdjdj" method="POST">
+        <label class="visually-hidden" for="email">Email address</label>
+        <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@example.com">
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="visually-hidden" aria-hidden="true">
+        <input type="hidden" name="_subject" value="New Peach33 waitlist signup">
+        <button type="submit">Join the waitlist <svg class="pixel-arrow" viewBox="0 0 6 9" aria-hidden="true" focusable="false"><defs><polygon id="pa-d" points="0.5,0 1,0.5 0.5,1 0,0.5" fill="currentColor"/></defs><use href="#pa-d"/><use href="#pa-d" x="1"/><use href="#pa-d" x="1" y="1"/><use href="#pa-d" x="2" y="1"/><use href="#pa-d" x="2" y="2"/><use href="#pa-d" x="3" y="2"/><use href="#pa-d" x="3" y="3"/><use href="#pa-d" x="4" y="3"/><use href="#pa-d" x="4" y="4"/><use href="#pa-d" x="5" y="4"/><use href="#pa-d" x="3" y="5"/><use href="#pa-d" x="4" y="5"/><use href="#pa-d" x="2" y="6"/><use href="#pa-d" x="3" y="6"/><use href="#pa-d" x="1" y="7"/><use href="#pa-d" x="2" y="7"/><use href="#pa-d" y="8"/><use href="#pa-d" x="1" y="8"/></svg></button>
+      </form>
+      <p id="waitlist-status" class="waitlist-status" role="status" aria-live="polite"></p>
+
+      <p class="hero-meta">peach33.com — © 2026</p>
+    </section>
+
+    <hr class="divider">
+
+    <section class="why">
+      <h2>The AI you have isn't yours.</h2>
+      <p>
+        Today's AI tools are built around tasks, not people. They forget you between sessions,
+        share infrastructure with strangers, and treat your life as a series of prompts.
+      </p>
+      <p>
+        Peach33 is the opposite: one always-on AI, provisioned just for you, that remembers
+        what matters and works in the background. The infrastructure is finally cheap enough
+        to give every person their own dedicated agent. We think that changes what an AI can be.
+      </p>
+    </section>
+
+    <hr class="divider">
+
+    <section class="how">
+      <h2>How it works.</h2>
+      <ol class="steps">
+        <li>
+          <svg class="step-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false" shape-rendering="crispEdges">
+            <g fill="#FF6B47">
+              <rect x="7" y="1" width="2" height="14"/>
+              <rect x="1" y="7" width="14" height="2"/>
+              <rect x="3" y="3" width="2" height="2"/>
+              <rect x="11" y="3" width="2" height="2"/>
+              <rect x="3" y="11" width="2" height="2"/>
+              <rect x="11" y="11" width="2" height="2"/>
+            </g>
+          </svg>
+          <span class="step-num">01</span>
+          <h3>Sign up.</h3>
+          <p>Your private AI is provisioned in seconds. Your data, your machine, your memory.</p>
+        </li>
+        <li>
+          <svg class="step-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false" shape-rendering="crispEdges">
+            <g fill="#FF6B47">
+              <rect x="1" y="2" width="14" height="1"/>
+              <rect x="1" y="3" width="1" height="8"/>
+              <rect x="14" y="3" width="1" height="8"/>
+              <rect x="2" y="11" width="12" height="1"/>
+              <rect x="4" y="12" width="2" height="2"/>
+              <rect x="4" y="14" width="1" height="1"/>
+              <rect x="4" y="6" width="2" height="2"/>
+              <rect x="7" y="6" width="2" height="2"/>
+              <rect x="10" y="6" width="2" height="2"/>
+            </g>
+          </svg>
+          <span class="step-num">02</span>
+          <h3>Talk to it.</h3>
+          <p>Chat, voice, share context. It learns who you are over time — not just what you asked five seconds ago.</p>
+        </li>
+        <li>
+          <svg class="step-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false" shape-rendering="crispEdges">
+            <g fill="#FF6B47">
+              <rect x="9" y="0" width="4" height="1"/>
+              <rect x="8" y="1" width="4" height="1"/>
+              <rect x="7" y="2" width="4" height="1"/>
+              <rect x="6" y="3" width="4" height="1"/>
+              <rect x="5" y="4" width="6" height="1"/>
+              <rect x="4" y="5" width="6" height="1"/>
+              <rect x="3" y="6" width="8" height="1"/>
+              <rect x="6" y="7" width="4" height="1"/>
+              <rect x="5" y="8" width="4" height="1"/>
+              <rect x="4" y="9" width="4" height="1"/>
+              <rect x="3" y="10" width="4" height="1"/>
+              <rect x="2" y="11" width="4" height="1"/>
+              <rect x="1" y="12" width="4" height="1"/>
+              <rect x="0" y="13" width="4" height="1"/>
+            </g>
+          </svg>
+          <span class="step-num">03</span>
+          <h3>It works for you.</h3>
+          <p>Tasks run in the background. Peach33 surfaces what's worth your attention and handles the rest.</p>
+        </li>
+      </ol>
+    </section>
+
+    <hr class="divider">
+
+    <section class="cases">
+      <h2>What it does for you.</h2>
+      <ul class="case-grid">
+        <li>
+          <h3>Morning, decoded.</h3>
+          <p>Wakes you with what changed overnight, what matters today, and nothing else.</p>
+        </li>
+        <li>
+          <h3>Inbox, handled.</h3>
+          <p>Drafts replies in your voice. Sends the obvious ones. Holds the hard ones for you.</p>
+        </li>
+        <li>
+          <h3>Travel, untangled.</h3>
+          <p>Books the flight. Watches the price. Reschedules when things slip.</p>
+        </li>
+        <li>
+          <h3>A memory that lasts.</h3>
+          <p>Your sister's birthday. Your last job's vesting cliff. The name of that wine you liked.</p>
+        </li>
+        <li>
+          <h3>Work while you sleep.</h3>
+          <p>Research, comparisons, deep-dives. You wake up to answers — not tabs.</p>
+        </li>
+        <li>
+          <h3>A calendar that protects you.</h3>
+          <p>Declines what shouldn't be there. Holds time for what should.</p>
+        </li>
+      </ul>
+    </section>
+
+    <hr class="divider">
+
+    <section class="faq">
+      <h2>Questions.</h2>
+      <dl class="faq-list">
+        <div class="faq-item">
+          <dt>How is this different from ChatGPT or Claude?</dt>
+          <dd>Those are tools you visit. Peach33 is an agent provisioned just for you — your own machine, your own memory, always running. It works in the background while you do other things.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Is my data private?</dt>
+          <dd>Each user gets their own isolated machine. Your conversations and memory live on infrastructure dedicated to you alone. Nothing is shared. Nothing trains a public model.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>What can it actually do today?</dt>
+          <dd>Chat, voice, scheduled tasks, email and calendar, web research, drafts and replies. More capability rolls out as the beta progresses.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>When does it launch?</dt>
+          <dd>Private beta is rolling out through 2026. Drop your email above to get on the list.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>How much will it cost?</dt>
+          <dd>Pricing isn't finalized. Per-user infrastructure costs us more than shared products do — but it's now cheap enough to be worth it. We'll publish pricing when we exit beta.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <hr class="divider">
+
+    <section class="closing">
+      <h2>Get early access.</h2>
+      <p>Private beta is rolling out now. Drop your email and we'll be in touch.</p>
+      <a href="#waitlist" class="closing-cta">Join the waitlist <svg class="pixel-arrow" viewBox="0 0 6 9" aria-hidden="true" focusable="false"><defs><polygon id="pa-d" points="0.5,0 1,0.5 0.5,1 0,0.5" fill="currentColor"/></defs><use href="#pa-d"/><use href="#pa-d" x="1"/><use href="#pa-d" x="1" y="1"/><use href="#pa-d" x="2" y="1"/><use href="#pa-d" x="2" y="2"/><use href="#pa-d" x="3" y="2"/><use href="#pa-d" x="3" y="3"/><use href="#pa-d" x="4" y="3"/><use href="#pa-d" x="4" y="4"/><use href="#pa-d" x="5" y="4"/><use href="#pa-d" x="3" y="5"/><use href="#pa-d" x="4" y="5"/><use href="#pa-d" x="2" y="6"/><use href="#pa-d" x="3" y="6"/><use href="#pa-d" x="1" y="7"/><use href="#pa-d" x="2" y="7"/><use href="#pa-d" y="8"/><use href="#pa-d" x="1" y="8"/></svg></a>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span class="foot-mark">Peach33</span>
+    <span class="foot-copy">© 2026</span>
+  </footer>
+
+  <script>
+    (function () {
+      var form = document.getElementById('waitlist');
+      var status = document.getElementById('waitlist-status');
+      if (!form) return;
+      var button = form.querySelector('button[type="submit"]');
+      var buttonLabel = button ? button.innerHTML : '';
+
+      function lock() {
+        if (!button) return;
+        button.disabled = true;
+        button.textContent = 'Joining…';
+      }
+      function unlock() {
+        if (!button) return;
+        button.disabled = false;
+        button.innerHTML = buttonLabel;
+      }
+      function showError(msg) {
+        status.textContent = msg;
+        status.classList.remove('ok');
+        status.classList.add('err');
+        unlock();
+      }
+
+      form.addEventListener('submit', function (e) {
+        if (form.action.indexOf('REPLACE_ME') !== -1) {
+          // Formspree endpoint not yet wired — fall through to native submit so dev sees the placeholder.
+          return;
+        }
+        if (button && button.disabled) {
+          e.preventDefault();
+          return;
+        }
+        e.preventDefault();
+        var data = new FormData(form);
+        status.textContent = '';
+        status.classList.remove('ok', 'err');
+        lock();
+
+        fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        }).then(function (res) {
+          if (res.ok) {
+            form.reset();
+            form.style.display = 'none';
+            status.textContent = "You're on the list. We'll be in touch.";
+            status.classList.add('ok');
+            // leave button disabled — form is hidden anyway
+          } else {
+            res.json().then(function (body) {
+              var msg = (body && body.errors && body.errors[0] && body.errors[0].message) || 'Something went wrong. Try again?';
+              showError(msg);
+            }).catch(function () {
+              showError('Something went wrong. Try again?');
+            });
+          }
+        }).catch(function () {
+          showError('Network hiccup. Try again?');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
