@@ -1,70 +1,72 @@
 # peach33.com
 
-Static landing page for **Peach33** — a personal AI companion (mobile app, pre-launch).
-Hosted on GitHub Pages, custom domain `peach33.com`.
+Responsive, static landing page for **Peach33**, a personal AI companion.
+Hosted on GitHub Pages at `peach33.com`. No framework, dependencies, or build step.
 
 ## Files
 
-- `index.html` — single page (hero, problem, how it works, footer).
-- `styles.css` — palette, type, layout. No framework.
-- `favicon.svg` — peach mark.
-- `CNAME` — tells GH Pages the custom domain is `peach33.com`. Do not delete.
-- `.nojekyll` — disables GH Pages' Jekyll build step. Do not delete.
+- `index.html` — navigation, hero, product sections, approval illustration, privacy, FAQ, two waitlist forms, and footer.
+- `tokens.css` — shared colors, typography, spacing, radii, and shadows from the Peach33 design handoff.
+- `styles.css` — responsive layouts and landing-specific measurements.
+- `script.js` — mobile navigation and progressively enhanced waitlist submissions.
+- `peach-mark.svg` — shared pixel-peach logo and favicon.
+- `CNAME` — GitHub Pages custom domain. Do not delete.
+- `.nojekyll` — disables GitHub Pages' Jekyll build step. Do not delete.
 
-## One-time setup
+## Design reference
 
-### 1. Wire up Formspree (waitlist form)
+The implementation follows `peach33-design-handoff/landing/html/landing-desktop.html`
+and `landing-mobile.html`, their PNG references, and the shared design tokens.
+It is one responsive page: desktop at 1024px and above, mobile below 640px,
+and an intermediate tablet layout.
 
-1. Sign up at <https://formspree.io> with `abhishekpareek29@gmail.com`.
-2. Create a new form. Set the destination email to your inbox.
-3. Copy the endpoint URL — looks like `https://formspree.io/f/xyzabc123`.
-4. In `index.html`, find `REPLACE_ME` and swap in your form ID:
-   ```html
-   <form id="waitlist" class="waitlist" action="https://formspree.io/f/xyzabc123" method="POST" novalidate>
-   ```
-5. Commit and push. First submission triggers a Formspree confirmation email — click the link to activate.
+Body and display text use the Arial-led system stack at weight 400. Only the
+wordmark uses Silkscreen Bold, loaded from Google Fonts. The phone and approval
+card are decorative, static illustrations, not working app controls.
 
-### 2. Create the GitHub repo and enable Pages
+Edit shared design values in `tokens.css`; edit landing layouts in `styles.css`.
+Email fields have a dark lower border so their boundary remains visible against
+the warm backgrounds. Focus indicators and reduced-motion preferences are supported.
+
+The mobile design shortens some copy. The page keeps one version of each text:
+where the mobile design only drops a trailing phrase, that phrase is wrapped in
+`.desktop-only` (hidden below 1024px). Other shortened mobile lines use the
+desktop wording.
+
+The design's footer links (Privacy policy, Terms, Contact) are intentionally
+omitted until the policy pages and a public contact address exist. When they do,
+add them to the right of `© 2026` in the footer, following the spec's spacing;
+do not ship the handoff's placeholder URLs.
+
+## Preview
+
+Open `index.html` directly, or serve this directory:
 
 ```sh
-cd /Users/apareek/Projects/peach33
-git init
-git add .
-git commit -m "initial peach33 landing"
-gh repo create peach33 --public --source=. --push
+python3 -m http.server 8000 --bind 127.0.0.1
 ```
 
-In GitHub: **Settings → Pages → Build and deployment → Source: Deploy from a branch → Branch: `main` / `/ (root)` → Save.**
+Then visit `http://127.0.0.1:8000`.
 
-The `CNAME` file in the repo will populate the custom-domain field automatically.
+## Waitlist
 
-### 3. Point peach33.com at GitHub Pages
+Both forms POST to the existing Formspree endpoint,
+`https://formspree.io/f/xbdwdjdj`. Each retains the `_gotcha` honeypot and the
+`_subject` hidden field. If the endpoint changes, update **both** form actions
+in `index.html`.
 
-At your domain registrar (whoever you bought peach33.com from), set these DNS records:
+With JavaScript, each form shows inline invalid-email, sending, success, and
+request-error states. Repeated submits are blocked while a request is pending,
+and requests time out after 15 seconds so the user can retry. On success, the
+submitted form is replaced by its confirmation. Without JavaScript, native
+email validation and standard form submission still work. The FAQ uses native
+`details` elements, and section links remain available without JavaScript.
 
-**Apex (`peach33.com`)** — four `A` records pointing at GitHub's Pages IPs:
-```
-185.199.108.153
-185.199.109.153
-185.199.110.153
-185.199.111.153
-```
+Do not send test signups to the live endpoint; intercept requests locally when
+checking submission states.
 
-**`www.peach33.com`** — one `CNAME` record:
-```
-www  CNAME  apareek.github.io.
-```
+## Deployment
 
-DNS usually propagates in 5–60 minutes. Once it has, go back to **Settings → Pages** and tick **Enforce HTTPS** (the cert provisions automatically once DNS is verified).
-
-### 4. Verify
-
-- `https://apareek.github.io/peach33/` should render before DNS propagates.
-- `https://peach33.com` should render after DNS propagates with a valid Let's Encrypt cert.
-- `https://www.peach33.com` should 301-redirect to the apex.
-
-## Editing copy or styling
-
-It's vanilla HTML/CSS — open `index.html` directly in a browser to preview, then `git push` to deploy. No build step.
-
-If you change the copy and want a richer hero subtitle later, the line lives in `index.html` under `<p class="hero-sub">`.
+GitHub Pages serves the repository root. Keep the existing Pages configuration,
+`CNAME`, and `.nojekyll`. Push approved changes to the configured publishing
+branch to deploy; no build command is needed.
