@@ -6,6 +6,8 @@ Hosted on GitHub Pages at `peach33.com`. No framework, dependencies, or build st
 ## Files
 
 - `index.html` — navigation, hero, the six "What Peach does" rows, privacy, FAQ, two waitlist forms, and footer.
+- `privacy.html` — privacy policy, served at `/privacy`.
+- `terms.html` — terms of service, served at `/terms`.
 - `tokens.css` — colors, type sizes, spacing, radii, and shadows from the Peach33 design handoff. Unchanged; do not edit.
 - `styles.css` — fonts, the app's shape language, responsive layouts, and the app-screen illustrations.
 - `script.js` — mobile navigation, progressively enhanced waitlist submissions, and the hero's motion.
@@ -44,8 +46,65 @@ handoff disagree, it wins. The redesign's decisions are recorded in
   (`role="img"` with a one-line label), built at the app's 390×844 size and
   scaled with `zoom`. Replace them with real screenshots when those exist; keep
   the label.
-- **Footer:** the Privacy policy, Terms and Contact links return with the legal
-  pages (work item #149, branch `add-privacy-terms`).
+- **Coming soon:** a capability row for a feature that isn't live for beta
+  users carries a "Coming soon" pill (and the same words, hidden, in its
+  heading for screen readers) and stays out of the rotating headline. Today
+  that is approvals and Google Calendar. When one goes live, remove its pill
+  and update the privacy policy and terms first.
+- **Footer:** every page's footer carries Privacy policy (`/privacy`), Terms
+  (`/terms`) and Contact (`mailto:support@peach33.com`). On desktop they sit to
+  the right of `© 2026`; below 1024px they wrap onto a second row. Mark the
+  current page's link with `aria-current="page"` and keep the footer identical
+  on all three pages.
+
+## Legal pages
+
+`privacy.html` and `terms.html` sit at the repository root so GitHub Pages
+serves them at the extensionless URLs `/privacy` and `/terms`, which the app
+links to. Their canonical URLs are the extensionless ones. They reuse the
+landing page's header (which `script.js` requires), with nav links pointing
+back to `/#…` except Privacy, which goes to `/privacy`. Every section keeps a
+stable `id` so the app can deep-link to it, for example `/privacy#ai-processing`
+or `/privacy#deletion`; never rename or remove one.
+
+In the pages, the product is "Peach"; "Peach33" is only the defined name of the
+operator ("Peach33", "we", "us") and the business that could be transferred.
+
+Text in `[[DOUBLE BRACKETS]]` is a placeholder the owner must fill in before
+the pages are published (work item #149). When either page changes, update its
+"Effective and last updated" date.
+
+Placeholders to fill in:
+
+- `[[EFFECTIVE DATE]]` (both pages)
+- `[[OWNER LEGAL NAME]]` and `[[CITY, STATE/REGION, COUNTRY]]` (both pages)
+- `[[MINIMUM AGE]]` (both pages)
+- `[[WEB SEARCH PROVIDER]]`: Brave Search or Microsoft Azure, whichever
+  production uses (both pages)
+- `[[GOVERNING LAW JURISDICTION]]` and `[[LIABILITY CAP AMOUNT]]` (terms)
+- `[[EMAIL PROVIDER]]`, `[[WAITLIST NOTIFICATION INBOX PROVIDER]]`,
+  `[[WAITLIST RETENTION PERIOD]]`, `[[LOG RETENTION PERIOD]]` and
+  `[[AZURE REGION]]` (privacy)
+- `[[FORMSPREE reCAPTCHA ON/OFF: …]]` (privacy, waitlist)
+- `[[CONFIRM AND STATE: …]]` Azure prompt retention and training use (privacy)
+- `[[CONFIRM: …]]` Azure and Fly.io data-processing terms, no enabled
+  "Connected tools" servers in production, and EU/UK transfer safeguards
+  (privacy)
+- `[[CONFIRM WITH #153: …]]` whether the app keeps the installation ID in the
+  Keychain, and that signing out unregisters the phone for push (privacy)
+
+Pushing `main` deploys, so before merging run this and expect no output:
+
+```sh
+grep -n '\[\[' index.html privacy.html terms.html
+```
+
+The policy describes push notifications conditionally ("if you allow
+notifications"), so it stays accurate before and after the app starts asking
+(#153). It describes document upload as available, which is true only while
+the orchestrator's `EMBEDDING_MODEL` secret is set; if it is removed, update
+both pages. Calendar, approval requests and connected tools are described as
+not available yet; update both pages before any of them goes live.
 
 ## Fonts
 
@@ -78,7 +137,9 @@ Open `index.html` directly, or serve this directory:
 python3 -m http.server 8000 --bind 127.0.0.1
 ```
 
-Then visit `http://127.0.0.1:8000`.
+Then visit `http://127.0.0.1:8000`. The local server does not resolve
+extensionless URLs, so preview the legal pages at `/privacy.html` and
+`/terms.html`; links to `/privacy` and `/terms` only work once deployed.
 
 ## Waitlist
 

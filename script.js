@@ -143,11 +143,10 @@
   const steps = [
     ['takes things off your plate', 'is working'],
     ['remembers what matters', 'is noting that down'],
-    ['plans your week', 'is planning your week'],
     ['reads your documents', 'is reading your document'],
     ['sets your reminders', 'is setting a reminder'],
-    ['does your research', 'is researching'],
-    ['asks before it acts', 'needs your OK']
+    ['runs your routines', 'is running your routine'],
+    ['does your research', 'is researching']
   ];
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let paused = false;
