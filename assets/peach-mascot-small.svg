@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Peach mascot">
+  <defs><clipPath id="body"><path d="M60 30 C48 20 18 24 16 56 C14 86 36 106 60 106 C84 106 106 86 104 56 C102 24 72 20 60 30 Z"/></clipPath></defs>
+  <path d="M60 31 V17" stroke="#2E6E2C" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <path d="M60 18 C62 9 71 4 82 6 C80 16 70 21 60 18 Z" fill="#3F8F3C"/>
+  <path d="M60 30 C48 20 18 24 16 56 C14 86 36 106 60 106 C84 106 106 86 104 56 C102 24 72 20 60 30 Z" fill="#FF8105"/>
+  <path d="M86 25 C97 31 104 42 104 56 C106 86 84 106 60 106 C78 100 94 86 96 64 C97 48 93 34 86 25 Z" fill="#FA520F" clip-path="url(#body)"/>
+  <rect x="22" y="44" width="76" height="34" rx="17" fill="#1F1F1F"/>
+  <rect x="40" y="51" width="12" height="20" rx="6" fill="#FFE295"/>
+  <rect x="68" y="51" width="12" height="20" rx="6" fill="#FFE295"/>
+  <path d="M52 88 Q60 95 68 88" stroke="#1F1F1F" stroke-width="5" stroke-linecap="round" fill="none"/>
+</svg>

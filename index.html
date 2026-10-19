@@ -3,44 +3,58 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Peach33 — Your own AI. Always on. Just for you.</title>
-  <meta name="description" content="Peach is a personal AI companion on its own private machine. It remembers what matters, works in the background, and asks before anything important.">
-  <meta property="og:title" content="Peach33 — Your own AI. Always on. Just for you.">
-  <meta property="og:description" content="Peach is a personal AI companion on its own private machine. It remembers what matters, works in the background, and asks before anything important.">
+  <title>Peach — AI that takes things off your plate</title>
+  <meta name="description" content="Your own personal AI, on its own private machine. It remembers what matters, works in the background, and asks before anything important.">
+  <meta property="og:title" content="Peach — AI that takes things off your plate">
+  <meta property="og:description" content="Your own personal AI, on its own private machine. It remembers what matters, works in the background, and asks before anything important.">
   <meta property="og:url" content="https://peach33.com/">
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Peach33">
+  <meta property="og:site_name" content="Peach">
   <meta name="theme-color" content="#fffaeb">
   <link rel="canonical" href="https://peach33.com/">
-  <link rel="icon" href="peach-mark.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@700&amp;display=swap">
+  <link rel="icon" href="assets/favicon.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/arimo-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/fredoka-600.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="tokens.css">
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
 </head>
 <body>
+  <svg class="icon-sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M9 6v12M15 6v12"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M6 4.5h12a2.5 2.5 0 0 1 2.5 2.5v7.5a2.5 2.5 0 0 1-2.5 2.5h-6.5l-4.5 3.5V17H6a2.5 2.5 0 0 1-2.5-2.5V7A2.5 2.5 0 0 1 6 4.5z"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6.5h11M9 12h11M9 17.5h11M4.5 6.5h.01M4.5 12h.01M4.5 17.5h.01"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4.5 20.5a7.5 7.5 0 0 1 15 0"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="m14.5 6-6 6 6 6"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><path d="M5.5 5.5h13a1.5 1.5 0 0 1 1.5 1.5v11.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 18.5V7a1.5 1.5 0 0 1 1.5-1.5zM4 10h16M8.5 3.5v4M15.5 3.5v4"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path d="M5 6h14a1.5 1.5 0 0 1 1.5 1.5v9A1.5 1.5 0 0 1 19 18H5a1.5 1.5 0 0 1-1.5-1.5v-9A1.5 1.5 0 0 1 5 6zM4 7l8 6 8-6"/></symbol>
+  </svg>
+
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header id="top" class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="#top" aria-label="Peach33 home">
-        <img class="brand-mark" src="peach-mark.svg" alt="" width="32" height="32">
-        <span class="wordmark">Peach33</span>
+      <a class="brand" href="#top" aria-label="Peach home">
+        <picture>
+          <source media="(min-width: 1024px)" srcset="assets/peach-mascot.svg">
+          <img class="brand-mark" src="assets/peach-mascot-small.svg" alt="" width="40" height="40">
+        </picture>
+        <span class="wordmark">pe<span class="wordmark-a">a</span>ch</span>
       </a>
 
       <button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="section-nav" aria-expanded="false" hidden>
-        <svg class="menu-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true" focusable="false">
-          <path d="M4 7h16M4 12h16M4 17h16"/>
-        </svg>
-        <svg class="close-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true" focusable="false">
-          <path d="m6 6 12 12M6 18 18 6"/>
-        </svg>
+        <svg class="menu-icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="#i-menu"/></svg>
+        <svg class="close-icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="#i-close"/></svg>
       </button>
 
       <nav id="section-nav" class="section-nav" aria-label="Main navigation">
-        <a href="#how">How it works</a>
         <a href="#does">What it does</a>
         <a href="#privacy">Privacy</a>
         <a href="#faq">FAQ</a>
@@ -56,14 +70,54 @@
   <main id="main" tabindex="-1">
     <section id="waitlist" class="hero" aria-labelledby="hero-title" tabindex="-1">
       <div class="container hero-inner">
+        <div class="hero-art">
+          <span class="float-peach peach-gold" aria-hidden="true"><img src="assets/peach-mascot.svg" alt="" width="48" height="48"></span>
+          <span class="float-peach peach-white" aria-hidden="true"><img src="assets/peach-mascot-small.svg" alt="" width="32" height="32"></span>
+          <div class="hero-mascot" aria-hidden="true">
+            <svg class="mascot" viewBox="0 0 120 120" focusable="false">
+              <defs><clipPath id="mascot-body"><path d="M60 30 C48 20 18 24 16 56 C14 86 36 106 60 106 C84 106 106 86 104 56 C102 24 72 20 60 30 Z"/></clipPath></defs>
+              <g class="mascot-leaf">
+                <path d="M60 31 V17" stroke="#2E6E2C" stroke-width="4" stroke-linecap="round" fill="none"/>
+                <path d="M60 18 C62 9 71 4 82 6 C80 16 70 21 60 18 Z" fill="#3F8F3C"/>
+              </g>
+              <path d="M60 30 C48 20 18 24 16 56 C14 86 36 106 60 106 C84 106 106 86 104 56 C102 24 72 20 60 30 Z" fill="#FF8105"/>
+              <path d="M86 25 C97 31 104 42 104 56 C106 86 84 106 60 106 C78 100 94 86 96 64 C97 48 93 34 86 25 Z" fill="#FA520F" clip-path="url(#mascot-body)"/>
+              <path d="M60 30 C57 36 56 41 57 46" stroke="#FA520F" stroke-width="3" stroke-linecap="round" fill="none"/>
+              <rect x="24" y="45" width="72" height="32" rx="16" fill="#1F1F1F"/>
+              <path d="M34 51.5 H47" stroke="#3D3D3D" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <g class="mascot-eyes">
+                <rect x="41" y="52" width="10" height="17" rx="5" fill="#FFE295"/>
+                <rect x="69" y="52" width="10" height="17" rx="5" fill="#FFE295"/>
+              </g>
+              <g stroke="#FFE295" stroke-width="2.4" stroke-linecap="round" fill="none">
+                <path class="mascot-dash mascot-dash-1" d="M35 73 H41"/>
+                <path class="mascot-dash mascot-dash-2" d="M45 73 H55"/>
+                <path class="mascot-dash mascot-dash-3" d="M59 73 H65"/>
+                <path class="mascot-dash mascot-dash-4" d="M69 73 H84"/>
+              </g>
+              <ellipse cx="38" cy="86" rx="7" ry="4" fill="#FFB38A"/>
+              <ellipse cx="82" cy="86" rx="7" ry="4" fill="#FFB38A"/>
+              <path d="M53 87 Q60 93 67 87" stroke="#1F1F1F" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+            </svg>
+            <p class="name-pill"><span class="name-pill-name">Peach</span><span class="name-pill-status" data-status>is working</span></p>
+          </div>
+          <button class="motion-toggle" type="button" aria-label="Pause animation" data-motion-toggle hidden>
+            <svg class="icon-pause" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg>
+            <svg class="icon-play" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
+          </button>
+        </div>
+
         <div class="hero-copy">
-          <p class="eyebrow beta-label"><span class="beta-dot" aria-hidden="true"></span>Private beta · 2026</p>
-          <h1 id="hero-title">Your own AI.<br class="desktop-break"> Always on.<br class="desktop-break"> Just for you.</h1>
-          <p class="hero-description">Peach is a personal AI companion on its own private machine. It remembers what matters, works in the background, and asks before anything important.</p>
+          <p class="eyebrow-pill"><span class="eyebrow-dot" aria-hidden="true"></span>Private beta · 2026</p>
+          <h1 id="hero-title" class="hero-title">
+            <span class="visually-hidden">Peach, AI that takes things off your plate</span>
+            <span aria-hidden="true">Peach, AI that <span class="hero-rotator" data-rotator>takes things off your plate</span></span>
+          </h1>
+          <p class="hero-description">Your own personal AI, on its own private machine. It remembers what matters, works in the background, and asks before anything important.</p>
 
           <div class="waitlist-widget">
             <form id="hero-waitlist" class="waitlist-form" action="https://formspree.io/f/xbdwdjdj" method="POST">
-              <label for="hero-email">Get early access</label>
+              <label class="visually-hidden" for="hero-email">Email address</label>
               <div class="form-row">
                 <input id="hero-email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" aria-describedby="hero-note hero-status">
                 <button class="button" type="submit">Join the waitlist</button>
@@ -75,188 +129,237 @@
             <p id="hero-status" class="waitlist-status" role="status" aria-live="polite" aria-atomic="true"></p>
           </div>
         </div>
-
-        <div class="hero-art" aria-hidden="true">
-          <div class="color-blocks hero-blocks">
-            <span></span><span></span><span></span><span></span><span></span>
-          </div>
-          <div class="phone-preview">
-            <div class="phone-header">
-              <span class="phone-avatar"><img src="peach-mark.svg" alt="" width="32" height="32"></span>
-              <span class="phone-name">Peach<span class="phone-task-count">Working on 2 tasks</span></span>
-            </div>
-            <div class="phone-chat">
-              <div class="phone-brief">
-                <span class="phone-brief-label">Today, from Peach</span>
-                <span>Replied to 4 routine emails, moved your 3 pm to Thursday, found cheaper flights.</span>
-              </div>
-              <div class="phone-message">Renew my car insurance before it lapses.</div>
-              <p class="phone-reply">I compared 3 quotes. One matches your cover for less. Switch?</p>
-              <div class="phone-approval">
-                <span class="phone-approval-label">Needs your OK · Spends money</span>
-                <span class="phone-approval-title">Buy a 12-month policy</span>
-                <div class="phone-actions">
-                  <span class="preview-approve">Approve</span>
-                  <span class="preview-details">Details</span>
-                </div>
-              </div>
-            </div>
-            <div class="phone-composer">
-              <span>Ask Peach to do something</span>
-              <span class="phone-send"></span>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
     <section class="section why" aria-labelledby="why-title">
-      <div class="container split-grid">
-        <h2 id="why-title" class="split-heading">The AI you have isn't yours.</h2>
-        <div class="why-copy split-aside">
+      <div class="container why-inner">
+        <h2 id="why-title">The AI you have isn't yours.</h2>
+        <div class="why-copy">
           <p>Today's AI tools are built around tasks, not people. They forget you between sessions, share infrastructure with strangers, and treat your life as a series of prompts.</p>
-          <p>Peach33 is the opposite: one always-on AI, provisioned just for you, that remembers what matters and works in the background.<span class="desktop-only"> Infrastructure is finally cheap enough to give every person their own agent.</span></p>
+          <p>Peach is the opposite: one always-on AI, provisioned just for you, that remembers what matters and works in the background. Infrastructure is finally cheap enough to give every person their own agent.</p>
         </div>
       </div>
     </section>
 
-    <section id="how" class="section how" aria-labelledby="how-title" tabindex="-1">
-      <div class="container section-stack">
-        <div class="section-header">
-          <h2 id="how-title">How it works.</h2>
-          <p class="eyebrow how-caption">Three steps · about a minute</p>
-        </div>
-        <ol class="steps">
-          <li>
-            <span class="step-number" aria-hidden="true">01</span>
-            <h3>Sign up.</h3>
-            <p>Your private AI is ready in seconds, on its own machine, with its own memory.</p>
+    <section id="does" class="section does" aria-labelledby="does-title" tabindex="-1">
+      <div class="container">
+        <h2 id="does-title" class="does-title">What Peach does.</h2>
+        <ul class="capabilities">
+          <li class="capability">
+            <div class="capability-copy">
+              <h3>Just message it.</h3>
+              <p>Peach lives in a chat, like texting a friend. Ask in plain words, and it gets to work while you get on with your day.</p>
+            </div>
+            <div class="capability-visual">
+              <div class="phone" role="img" aria-label="Peach's chat: you ask for birthday gift ideas for your sister Maya, and Peach, remembering her new pottery class, offers to find some.">
+                <div class="phone-screen">
+                  <div class="app-status"><span>9:41</span><span class="app-status-icons"><i></i><i></i><i></i></span></div>
+                  <div class="app-header">
+                    <span class="app-menu"><svg width="22" height="22"><use href="#i-menu"/></svg></span>
+                    <span class="app-avatar"><img src="assets/peach-mascot.svg" alt="" width="64" height="64"></span>
+                    <span class="app-name"><b>Peach</b><span>is working</span></span>
+                  </div>
+                  <div class="app-body">
+                    <span class="app-day">Today</span>
+                    <p class="bubble bubble-user">Maya's birthday is on Saturday. Any gift ideas?<span class="bubble-meta">9:41</span></p>
+                    <p class="bubble bubble-peach">She just started a pottery class, so a glaze set or good carving tools would suit her. Want me to find three well-reviewed options?<span class="bubble-meta">9:41</span></p>
+                    <p class="bubble bubble-user">Yes please<span class="bubble-meta">9:42</span></p>
+                    <span class="app-typing"><i></i><i></i><i></i></span>
+                  </div>
+                  <div class="app-composer"><span class="app-round"><svg width="22" height="22"><use href="#i-plus"/></svg></span><span>Message Peach</span><span class="app-round app-send"><svg width="20" height="20"><use href="#i-send"/></svg></span></div>
+                  <div class="app-tabbar"><span class="app-tab is-current"><svg width="22" height="22"><use href="#i-chat"/></svg></span><span class="app-tab"><svg width="22" height="22"><use href="#i-list"/></svg></span><span class="app-tab"><svg width="22" height="22"><use href="#i-user"/></svg></span></div>
+                  <span class="app-home"></span>
+                </div>
+              </div>
+            </div>
           </li>
-          <li>
-            <span class="step-number" aria-hidden="true">02</span>
-            <h3>Talk to it.</h3>
-            <p>Chat, speak, share context. It learns who you are, not just what you asked a moment ago.</p>
-          </li>
-          <li>
-            <span class="step-number" aria-hidden="true">03</span>
-            <h3>It works for you.</h3>
-            <p>Tasks run in the background. It surfaces what's worth your attention and handles the rest.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
 
-    <section id="does" class="section features" aria-labelledby="does-title" tabindex="-1">
-      <div class="container section-stack">
-        <h2 id="does-title">What it does for you.</h2>
-        <ul class="feature-grid">
-          <li>
-            <span class="feature-block" aria-hidden="true"></span>
-            <div class="feature-copy">
-              <h3>Morning, decoded.</h3>
-              <p>Wakes you with what changed overnight, what matters today, and nothing else.</p>
+          <li class="capability">
+            <div class="capability-copy">
+              <h3>It asks, you tap.</h3>
+              <p>When Peach needs a decision, it asks a quick question with options, so a choice takes a tap, not a paragraph.</p>
+            </div>
+            <div class="capability-visual">
+              <div class="phone" role="img" aria-label="Peach asks when to remind you to order the gift, with three times to tap, or Other.">
+                <div class="phone-screen">
+                  <div class="app-status"><span>9:43</span><span class="app-status-icons"><i></i><i></i><i></i></span></div>
+                  <div class="app-header">
+                    <span class="app-menu"><svg width="22" height="22"><use href="#i-menu"/></svg></span>
+                    <span class="app-avatar"><img src="assets/peach-mascot.svg" alt="" width="64" height="64"></span>
+                    <span class="app-name"><b>Peach</b></span>
+                  </div>
+                  <div class="app-body">
+                    <p class="bubble bubble-peach">Found three well-reviewed glaze sets. When should I remind you to order one?<span class="bubble-meta">9:43</span></p>
+                    <div class="app-card app-question">
+                      <span class="app-eyebrow">Choose one</span>
+                      <span class="app-option">Tonight at 8</span>
+                      <span class="app-option">Tomorrow morning</span>
+                      <span class="app-option">Thursday after work</span>
+                      <span class="app-option is-other">Other…</span>
+                    </div>
+                  </div>
+                  <div class="app-composer"><span class="app-round"><svg width="22" height="22"><use href="#i-plus"/></svg></span><span>Message Peach</span><span class="app-round app-send"><svg width="20" height="20"><use href="#i-send"/></svg></span></div>
+                  <div class="app-tabbar"><span class="app-tab is-current"><svg width="22" height="22"><use href="#i-chat"/></svg></span><span class="app-tab"><svg width="22" height="22"><use href="#i-list"/></svg></span><span class="app-tab"><svg width="22" height="22"><use href="#i-user"/></svg></span></div>
+                  <span class="app-home"></span>
+                </div>
+              </div>
             </div>
           </li>
-          <li>
-            <span class="feature-block" aria-hidden="true"></span>
-            <div class="feature-copy">
-              <h3>Inbox, handled.</h3>
-              <p>Drafts replies in your voice. Sends the obvious ones. Holds the hard ones<span class="desktop-only"> for you</span>.</p>
+
+          <li class="capability">
+            <div class="capability-copy">
+              <h3>Nothing important without your OK.</h3>
+              <p>Anything that spends money or speaks for you waits for your approval. You set the rules, and Peach follows them.</p>
+            </div>
+            <div class="capability-visual">
+              <div class="phone" role="img" aria-label="An approval card: Peach asks for your OK before adding a pottery taster to your calendar, with Approve, Change and Decline.">
+                <div class="phone-screen">
+                  <div class="app-status"><span>9:47</span><span class="app-status-icons"><i></i><i></i><i></i></span></div>
+                  <div class="app-header">
+                    <span class="app-menu"><svg width="22" height="22"><use href="#i-menu"/></svg></span>
+                    <span class="app-avatar"><img src="assets/peach-mascot.svg" alt="" width="64" height="64"></span>
+                    <span class="app-name"><b>Peach</b></span>
+                  </div>
+                  <div class="app-body">
+                    <p class="bubble bubble-peach">Maya's studio runs a pottery taster on Saturday at 10. Shall I add it to your calendar?<span class="bubble-meta">9:47</span></p>
+                    <div class="app-card app-approval">
+                      <span class="app-approval-top"><span class="app-eyebrow">Needs your OK</span><span class="app-risk">Changes your calendar</span></span>
+                      <span class="app-approval-title">Add “Pottery taster with Maya”</span>
+                      <span class="app-approval-detail">Saturday, 10:00–11:30 · Personal calendar</span>
+                      <span class="app-actions"><span class="app-btn app-btn-primary">Approve</span><span class="app-btn app-btn-secondary">Change</span><span class="app-btn app-btn-text">Decline</span></span>
+                    </div>
+                  </div>
+                  <div class="app-composer"><span class="app-round"><svg width="22" height="22"><use href="#i-plus"/></svg></span><span>Message Peach</span><span class="app-round app-send"><svg width="20" height="20"><use href="#i-send"/></svg></span></div>
+                  <div class="app-tabbar"><span class="app-tab is-current"><svg width="22" height="22"><use href="#i-chat"/></svg></span><span class="app-tab"><svg width="22" height="22"><use href="#i-list"/></svg><span class="app-badge">1</span></span><span class="app-tab"><svg width="22" height="22"><use href="#i-user"/></svg></span></div>
+                  <span class="app-home"></span>
+                </div>
+              </div>
             </div>
           </li>
-          <li>
-            <span class="feature-block" aria-hidden="true"></span>
-            <div class="feature-copy">
-              <h3>Travel, untangled.</h3>
-              <p>Books the flight. Watches the price. Reschedules when things slip.</p>
+
+          <li class="capability">
+            <div class="capability-copy">
+              <h3>Busy in the background.</h3>
+              <p>Routines and reminders run on their own. See what's running, what needs you and what's done, any time.</p>
+            </div>
+            <div class="capability-visual">
+              <div class="phone" role="img" aria-label="The Tasks tab: one item needs you, gift research is running, the morning brief is done, and a weekday routine is on.">
+                <div class="phone-screen">
+                  <div class="app-status"><span>9:52</span><span class="app-status-icons"><i></i><i></i><i></i></span></div>
+                  <span class="app-title">Tasks</span>
+                  <div class="app-list">
+                    <span class="app-section">Needs you</span>
+                    <span class="app-row"><span class="app-row-text"><span class="app-row-title">Add pottery taster to calendar</span><span class="app-row-meta">Waiting for your OK</span></span><span class="app-pill app-pill-needs">Needs you</span></span>
+                    <span class="app-section">Running</span>
+                    <span class="app-row"><span class="app-row-text"><span class="app-row-title">Comparing glaze sets</span><span class="app-row-meta">3 of 5 shops checked</span><span class="app-progress"><i></i></span></span></span>
+                    <span class="app-section">Done this week</span>
+                    <span class="app-row"><span class="app-row-text"><span class="app-row-title">Morning brief</span><span class="app-row-meta">Today, 7:30</span></span><span class="app-pill app-pill-done"><svg width="14" height="14"><use href="#i-check"/></svg>Done</span></span>
+                    <span class="app-section">Routines</span>
+                    <span class="app-row"><span class="app-row-text"><span class="app-row-title">Weekday morning brief</span><span class="app-row-meta">Mon–Fri, 7:30</span></span><span class="app-switch"></span></span>
+                  </div>
+                  <div class="app-tabbar"><span class="app-tab"><svg width="22" height="22"><use href="#i-chat"/></svg></span><span class="app-tab is-current"><svg width="22" height="22"><use href="#i-list"/></svg><span class="app-badge">1</span></span><span class="app-tab"><svg width="22" height="22"><use href="#i-user"/></svg></span></div>
+                  <span class="app-home"></span>
+                </div>
+              </div>
             </div>
           </li>
-          <li>
-            <span class="feature-block" aria-hidden="true"></span>
-            <div class="feature-copy">
-              <h3>A memory that lasts.</h3>
-              <p>Your sister's birthday. Your vesting cliff. The name of that wine you liked.</p>
+
+          <li class="capability">
+            <div class="capability-copy">
+              <h3>A memory you can see.</h3>
+              <p>Peach remembers what matters to you, and shows you exactly what it knows. Forget anything with a tap.</p>
+            </div>
+            <div class="capability-visual">
+              <div class="phone" role="img" aria-label="The memory list: each thing Peach remembers about you, with a button to forget it.">
+                <div class="phone-screen">
+                  <div class="app-status"><span>9:55</span><span class="app-status-icons"><i></i><i></i><i></i></span></div>
+                  <span class="app-title">You</span>
+                  <div class="app-list">
+                    <span class="app-section">What Peach remembers</span>
+                    <span class="app-row"><span class="app-row-text"><span class="app-row-title">Maya is your sister; her birthday is 24 October</span></span><span class="app-forget"><svg width="18" height="18"><use href="#i-close"/></svg></span></span>
+                    <span class="app-row"><span class="app-row-text"><span class="app-row-title">Maya just started a pottery class</span></span><span class="app-forget"><svg width="18" height="18"><use href="#i-close"/></svg></span></span>
+                    <span class="app-row"><span class="app-row-text"><span class="app-row-title">You like reminders in the evening</span></span><span class="app-forget"><svg width="18" height="18"><use href="#i-close"/></svg></span></span>
+                    <span class="app-row"><span class="app-row-text"><span class="app-row-title">You work from home on Fridays</span></span><span class="app-forget"><svg width="18" height="18"><use href="#i-close"/></svg></span></span>
+                    <span class="app-row"><span class="app-row-text"><span class="app-row-title">You prefer aisle seats</span></span><span class="app-forget"><svg width="18" height="18"><use href="#i-close"/></svg></span></span>
+                  </div>
+                  <div class="app-tabbar"><span class="app-tab"><svg width="22" height="22"><use href="#i-chat"/></svg></span><span class="app-tab"><svg width="22" height="22"><use href="#i-list"/></svg></span><span class="app-tab is-current"><svg width="22" height="22"><use href="#i-user"/></svg></span></div>
+                  <span class="app-home"></span>
+                </div>
+              </div>
             </div>
           </li>
-          <li>
-            <span class="feature-block" aria-hidden="true"></span>
-            <div class="feature-copy">
-              <h3>Work while you sleep.</h3>
-              <p>Research, comparisons, deep-dives. You wake up to answers, not tabs.</p>
+
+          <li class="capability">
+            <div class="capability-copy">
+              <h3>Plugged into your day.</h3>
+              <p>Connect Google Calendar so Peach can check and add events, and share documents for it to read and answer questions about.</p>
             </div>
-          </li>
-          <li>
-            <span class="feature-block" aria-hidden="true"></span>
-            <div class="feature-copy">
-              <h3>A calendar that protects you.</h3>
-              <p>Declines what shouldn't be there. Holds time for what should.</p>
+            <div class="capability-visual">
+              <div class="phone" role="img" aria-label="The Connectors page: Google Calendar ready to connect, and email coming soon.">
+                <div class="phone-screen">
+                  <div class="app-status"><span>9:58</span><span class="app-status-icons"><i></i><i></i><i></i></span></div>
+                  <span class="app-back"><svg width="22" height="22"><use href="#i-back"/></svg></span>
+                  <span class="app-title app-title-below">Connectors</span>
+                  <div class="app-list app-list-below">
+                    <span class="app-intro">Choose the services Peach can use.</span>
+                    <span class="app-row app-connector">
+                      <span class="app-connector-head"><span class="app-icon"><svg width="24" height="24"><use href="#i-calendar"/></svg></span><span class="app-row-text"><span class="app-row-title">Google Calendar</span><span class="app-row-meta">Let Peach read and add calendar events.</span></span></span>
+                      <span class="app-btn app-btn-primary">Connect</span>
+                    </span>
+                    <span class="app-row app-connector is-disabled">
+                      <span class="app-connector-head"><span class="app-icon"><svg width="24" height="24"><use href="#i-mail"/></svg></span><span class="app-row-text"><span class="app-row-title">Email</span><span class="app-row-meta">Coming soon</span></span></span>
+                    </span>
+                  </div>
+                  <span class="app-home"></span>
+                </div>
+              </div>
             </div>
           </li>
         </ul>
-      </div>
-    </section>
-
-    <section class="section approval-section" aria-labelledby="approval-title">
-      <div class="container split-grid">
-        <div class="approval-copy split-heading">
-          <p class="eyebrow">You stay in charge</p>
-          <h2 id="approval-title">It asks before it acts.</h2>
-          <p>Anything that spends money or speaks for you waits for your OK. You choose the rules, and every step Peach takes is in your activity log.</p>
-        </div>
-        <div class="approval-card split-aside" aria-hidden="true">
-          <div class="approval-meta">
-            <span class="eyebrow">Needs your OK</span>
-            <span class="risk-pill">Spends money</span>
-          </div>
-          <span class="approval-card-title">Reserve a table for 2, Friday 8:00 PM</span>
-          <p class="approval-detail">Deposit on your saved card. Held for 15 minutes.</p>
-          <div class="approval-actions">
-            <span class="illustration-action illustration-primary">Approve</span>
-            <span class="illustration-action illustration-secondary">Change</span>
-            <span class="illustration-decline">Decline</span>
-          </div>
-        </div>
       </div>
     </section>
 
     <section id="privacy" class="section privacy" aria-labelledby="privacy-title" tabindex="-1">
-      <div class="container section-stack">
-        <div class="privacy-header">
-          <h2 id="privacy-title">Yours alone.</h2>
-          <img src="peach-mark.svg" alt="" width="96" height="96">
+      <div class="container container-panel">
+        <div class="privacy-panel">
+          <div class="privacy-header">
+            <h2 id="privacy-title">Yours to control.</h2>
+            <span class="privacy-badge" aria-hidden="true"><img src="assets/peach-mascot.svg" alt="" width="84" height="84"></span>
+          </div>
+          <ul class="privacy-grid">
+            <li>
+              <h3>Your own assistant.</h3>
+              <p>Your assistant runs on its own machine. Nothing you share with Peach is shown to other users.</p>
+            </li>
+            <li>
+              <h3>Memory you control.</h3>
+              <p>See and delete what Peach remembers. Your data is stored in our database and sent to Microsoft Azure to generate replies.</p>
+            </li>
+            <li>
+              <h3>Not our training data.</h3>
+              <p>We don’t train AI models on what you share.</p>
+            </li>
+          </ul>
         </div>
-        <ul class="privacy-grid">
-          <li>
-            <h3>Your own machine.</h3>
-            <p>Every user gets an isolated machine. Nothing is shared with strangers.</p>
-          </li>
-          <li>
-            <h3>Your own memory.</h3>
-            <p>Conversations and memory live on infrastructure dedicated to you. See or forget anything it knows.</p>
-          </li>
-          <li>
-            <h3>Never training data.</h3>
-            <p>Nothing you share trains a public model.</p>
-          </li>
-        </ul>
       </div>
     </section>
 
     <section id="faq" class="section faq" aria-labelledby="faq-title" tabindex="-1">
-      <div class="container split-grid">
+      <div class="container faq-inner">
         <h2 id="faq-title">Questions.</h2>
         <div class="faq-list">
           <details open>
             <summary>How is this different from ChatGPT or Claude?<span class="faq-indicator" aria-hidden="true"></span></summary>
-            <p>Those are tools you visit. Peach33 is an agent provisioned just for you: your own machine, your own memory, always running. It works in the background while you do other things.</p>
+            <p>Those are tools you visit. Peach is an agent provisioned just for you: your own machine, your own memory, always running. It works in the background while you do other things.</p>
           </details>
           <details>
             <summary>Is my data private?<span class="faq-indicator" aria-hidden="true"></span></summary>
-            <p>Each user gets their own isolated machine. Your conversations and memory live on infrastructure dedicated to you alone. Nothing is shared. Nothing trains a public model.</p>
+            <p>Your assistant runs on its own machine, and nothing you share with Peach is shown to other users. Your conversations and memories are stored in our database, hosted by Fly.io in the US, and sent to Microsoft Azure, which runs the AI models, to generate replies. We don’t train AI models on what you share.</p>
           </details>
           <details>
             <summary>What can it actually do today?<span class="faq-indicator" aria-hidden="true"></span></summary>
-            <p>Chat, voice, scheduled tasks, email and calendar, web research, drafts and replies. More capability rolls out as the beta progresses.</p>
+            <p>Chat, a memory you can see and edit, routines and reminders, reading public web pages, and answering questions about documents you upload. More capability rolls out as the beta progresses.</p>
           </details>
           <details>
             <summary>When does it launch?<span class="faq-indicator" aria-hidden="true"></span></summary>
@@ -271,32 +374,39 @@
     </section>
 
     <section class="section closing" aria-labelledby="closing-title">
-      <div class="container closing-content">
-        <h2 id="closing-title">Get early access.</h2>
-        <p class="closing-description">Private beta is rolling out now. Leave your email and we'll be in touch.</p>
-        <div class="waitlist-widget">
-          <form id="closing-waitlist" class="waitlist-form" action="https://formspree.io/f/xbdwdjdj" method="POST">
-            <label class="visually-hidden" for="closing-email">Email address</label>
-            <div class="form-row">
-              <input id="closing-email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" aria-describedby="closing-status">
-              <button class="button" type="submit">Join the waitlist</button>
-            </div>
-            <input class="visually-hidden" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
-            <input type="hidden" name="_subject" value="New Peach33 waitlist signup">
-          </form>
-          <p id="closing-status" class="waitlist-status" role="status" aria-live="polite" aria-atomic="true"></p>
+      <div class="container container-panel">
+        <div class="closing-panel">
+          <span class="float-peach closing-peach closing-peach-1" aria-hidden="true"><img src="assets/peach-mascot.svg" alt="" width="55" height="55"></span>
+          <span class="float-peach closing-peach closing-peach-2" aria-hidden="true"><img src="assets/peach-mascot-small.svg" alt="" width="32" height="32"></span>
+          <span class="float-peach closing-peach closing-peach-3" aria-hidden="true"><img src="assets/peach-mascot-small.svg" alt="" width="30" height="30"></span>
+          <span class="float-peach closing-peach closing-peach-4" aria-hidden="true"><img src="assets/peach-mascot.svg" alt="" width="42" height="42"></span>
+          <span class="float-peach closing-peach closing-peach-5" aria-hidden="true"><img src="assets/peach-mascot.svg" alt="" width="60" height="60"></span>
+          <span class="float-peach closing-peach closing-peach-6" aria-hidden="true"><img src="assets/peach-mascot-small.svg" alt="" width="28" height="28"></span>
+          <h2 id="closing-title">Get early access.</h2>
+          <p class="closing-description">Private beta is rolling out now. Leave your email and we'll be in touch.</p>
+          <div class="waitlist-widget">
+            <form id="closing-waitlist" class="waitlist-form" action="https://formspree.io/f/xbdwdjdj" method="POST">
+              <label class="visually-hidden" for="closing-email">Email address</label>
+              <div class="form-row">
+                <input id="closing-email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" aria-describedby="closing-status">
+                <button class="button" type="submit">Join the waitlist</button>
+              </div>
+              <input class="visually-hidden" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+              <input type="hidden" name="_subject" value="New Peach33 waitlist signup">
+            </form>
+            <p id="closing-status" class="waitlist-status" role="status" aria-live="polite" aria-atomic="true"></p>
+          </div>
         </div>
-      </div>
-      <div class="color-blocks closing-blocks" aria-hidden="true">
-        <span></span><span></span><span></span><span></span><span></span>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <img src="peach-mark.svg" alt="" width="24" height="24">
-      <span class="wordmark">Peach33</span>
+      <span class="footer-brand">
+        <img src="assets/peach-mascot-small.svg" alt="" width="24" height="24">
+        <span class="wordmark">pe<span class="wordmark-a">a</span>ch</span>
+      </span>
       <span>© 2026</span>
     </div>
   </footer>

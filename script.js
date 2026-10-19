@@ -127,4 +127,108 @@
       }
     });
   });
+
+  // Hero: the headline's ending rotates through what Peach does, the name pill
+  // under the mascot says what it is doing, and the mascot works (in CSS).
+  // Motion runs only while the visitor allows it and has not paused it, and
+  // rests while the hero is off screen or the page is hidden. The h1's
+  // accessible name stays the fixed line throughout.
+  const hero = document.querySelector('.hero');
+  const rotator = hero && hero.querySelector('[data-rotator]');
+  const doing = hero && hero.querySelector('[data-status]');
+  const motionToggle = hero && hero.querySelector('[data-motion-toggle]');
+  if (!rotator || !doing || !motionToggle) return;
+
+  const title = rotator.closest('h1');
+  const steps = [
+    ['takes things off your plate', 'is working'],
+    ['remembers what matters', 'is noting that down'],
+    ['plans your week', 'is planning your week'],
+    ['reads your documents', 'is reading your document'],
+    ['sets your reminders', 'is setting a reminder'],
+    ['does your research', 'is researching'],
+    ['asks before it acts', 'needs your OK']
+  ];
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let paused = false;
+  let onScreen = true;
+  let step = 0;
+  let timer = 0;
+
+  function showStep(next, animate) {
+    step = next;
+    const [phrase, activity] = steps[next];
+    if (!animate) {
+      rotator.textContent = phrase;
+      doing.textContent = activity;
+      return;
+    }
+    rotator.classList.add('is-changing');
+    doing.classList.add('is-changing');
+    window.setTimeout(() => {
+      rotator.textContent = phrase;
+      doing.textContent = activity;
+      rotator.classList.remove('is-changing');
+      doing.classList.remove('is-changing');
+    }, 250);
+  }
+
+  // Keep the h1 as tall as its tallest ending at this width, so the content
+  // below never moves as the endings change.
+  function reserveTitleHeight() {
+    title.style.minHeight = '';
+    if (reducedMotion.matches) return;
+    const current = rotator.textContent;
+    let tallest = 0;
+    for (const [phrase] of steps) {
+      rotator.textContent = phrase;
+      tallest = Math.max(tallest, title.getBoundingClientRect().height);
+    }
+    rotator.textContent = current;
+    title.style.minHeight = `${Math.ceil(tallest)}px`;
+  }
+
+  function update() {
+    const allowed = !reducedMotion.matches && !paused;
+    document.documentElement.classList.toggle('motion', allowed);
+    hero.classList.toggle('is-offscreen', !onScreen || document.hidden);
+    motionToggle.hidden = reducedMotion.matches;
+    const rotate = allowed && onScreen && !document.hidden;
+    if (rotate && !timer) {
+      timer = window.setInterval(() => showStep((step + 1) % steps.length, true), 2600);
+    } else if (!rotate && timer) {
+      window.clearInterval(timer);
+      timer = 0;
+    }
+  }
+
+  motionToggle.addEventListener('click', () => {
+    paused = !paused;
+    motionToggle.classList.toggle('is-paused', paused);
+    motionToggle.setAttribute('aria-label', paused ? 'Play animation' : 'Pause animation');
+    update();
+  });
+
+  reducedMotion.addEventListener('change', () => {
+    if (reducedMotion.matches) showStep(0, false);
+    reserveTitleHeight();
+    update();
+  });
+
+  new IntersectionObserver(([entry]) => {
+    onScreen = entry.isIntersecting;
+    update();
+  }).observe(hero);
+
+  document.addEventListener('visibilitychange', update);
+
+  let resizeFrame = 0;
+  window.addEventListener('resize', () => {
+    window.cancelAnimationFrame(resizeFrame);
+    resizeFrame = window.requestAnimationFrame(reserveTitleHeight);
+  });
+  document.fonts.ready.then(reserveTitleHeight);
+
+  reserveTitleHeight();
+  update();
 })();
