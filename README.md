@@ -74,12 +74,11 @@ Text in `[[DOUBLE BRACKETS]]` is a placeholder the owner must fill in before
 the pages are published (work item #149). When either page changes, update its
 "Effective and last updated" date.
 
-Placeholders to fill in:
-
-- `[[AZURE REGION]]` (privacy, "Where data is processed"): the Azure region of
-  the model deployment. If its deployment type is Global or Data Zone, say
-  that Microsoft may process requests in other regions of the world or of
-  that data zone.
+All placeholders were filled with the owner's answers on 2026-11-03. The
+Azure deployment is in Virginia (the owner gave "IAD"); "Where data is
+processed" also says Microsoft may use another Azure region to manage
+capacity, which Microsoft documents for every deployment type. If the
+deployment moves, update that sentence.
 
 Before publishing, the pages also depend on these being true:
 
