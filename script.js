@@ -128,26 +128,23 @@
     });
   });
 
-  // Hero: the headline's ending rotates through what Peach does, the name pill
-  // under the mascot says what it is doing, and the mascot works (in CSS).
-  // Motion runs only while the visitor allows it and has not paused it, and
-  // rests while the hero is off screen or the page is hidden. The h1's
-  // accessible name stays the fixed line throughout.
+  // Hero: the name pill under the mascot says what Peach is doing, and the
+  // mascot works (in CSS). Motion runs only while the visitor allows it and
+  // has not paused it, and rests while the hero is off screen or the page is
+  // hidden.
   const hero = document.querySelector('.hero');
-  const rotator = hero && hero.querySelector('[data-rotator]');
   const doing = hero && hero.querySelector('[data-status]');
   const motionToggle = hero && hero.querySelector('[data-motion-toggle]');
-  if (!rotator || !doing || !motionToggle) return;
+  if (!doing || !motionToggle) return;
 
-  const title = rotator.closest('h1');
-  const steps = [
-    ['takes things off your plate', 'is working'],
-    ['remembers what matters', 'is noting that down'],
-    ['plans your week', 'is planning your week'],
-    ['reads your documents', 'is reading your document'],
-    ['sets your reminders', 'is setting a reminder'],
-    ['does your research', 'is researching'],
-    ['asks before it acts', 'needs your OK']
+  // Only what beta users can do today (see "Coming soon" in the README).
+  const activities = [
+    'is working',
+    'is noting that down',
+    'is reading your document',
+    'is setting a reminder',
+    'is running your routine',
+    'is researching'
   ];
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let paused = false;
@@ -157,35 +154,15 @@
 
   function showStep(next, animate) {
     step = next;
-    const [phrase, activity] = steps[next];
     if (!animate) {
-      rotator.textContent = phrase;
-      doing.textContent = activity;
+      doing.textContent = activities[next];
       return;
     }
-    rotator.classList.add('is-changing');
     doing.classList.add('is-changing');
     window.setTimeout(() => {
-      rotator.textContent = phrase;
-      doing.textContent = activity;
-      rotator.classList.remove('is-changing');
+      doing.textContent = activities[next];
       doing.classList.remove('is-changing');
     }, 250);
-  }
-
-  // Keep the h1 as tall as its tallest ending at this width, so the content
-  // below never moves as the endings change.
-  function reserveTitleHeight() {
-    title.style.minHeight = '';
-    if (reducedMotion.matches) return;
-    const current = rotator.textContent;
-    let tallest = 0;
-    for (const [phrase] of steps) {
-      rotator.textContent = phrase;
-      tallest = Math.max(tallest, title.getBoundingClientRect().height);
-    }
-    rotator.textContent = current;
-    title.style.minHeight = `${Math.ceil(tallest)}px`;
   }
 
   function update() {
@@ -195,7 +172,7 @@
     motionToggle.hidden = reducedMotion.matches;
     const rotate = allowed && onScreen && !document.hidden;
     if (rotate && !timer) {
-      timer = window.setInterval(() => showStep((step + 1) % steps.length, true), 2600);
+      timer = window.setInterval(() => showStep((step + 1) % activities.length, true), 2600);
     } else if (!rotate && timer) {
       window.clearInterval(timer);
       timer = 0;
@@ -211,7 +188,6 @@
 
   reducedMotion.addEventListener('change', () => {
     if (reducedMotion.matches) showStep(0, false);
-    reserveTitleHeight();
     update();
   });
 
@@ -222,13 +198,5 @@
 
   document.addEventListener('visibilitychange', update);
 
-  let resizeFrame = 0;
-  window.addEventListener('resize', () => {
-    window.cancelAnimationFrame(resizeFrame);
-    resizeFrame = window.requestAnimationFrame(reserveTitleHeight);
-  });
-  document.fonts.ready.then(reserveTitleHeight);
-
-  reserveTitleHeight();
   update();
 })();

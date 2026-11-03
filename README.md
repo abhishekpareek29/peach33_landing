@@ -1,17 +1,18 @@
 # peach33.com
 
-Responsive, static landing page for **Peach**, a personal AI companion.
+Responsive, static landing page for **Peach**, an AI agent for your errands and, soon, your business.
 Hosted on GitHub Pages at `peach33.com`. No framework, dependencies, or build step.
 
 ## Files
 
-- `index.html` — navigation, hero, the six "What Peach does" rows, privacy, FAQ, two waitlist forms, and footer.
+- `index.html` — navigation, hero, the demo video, the six "What Peach does" rows, the business team, two waitlist forms, and footer.
 - `tokens.css` — colors, type sizes, spacing, radii, and shadows from the Peach33 design handoff. Unchanged; do not edit.
 - `styles.css` — fonts, the app's shape language, responsive layouts, and the app-screen illustrations.
 - `script.js` — mobile navigation, progressively enhanced waitlist submissions, and the hero's motion.
 - `assets/peach-mascot.svg`, `assets/peach-mascot-small.svg` — the Agent Visor mascot masters, byte-for-byte from the app repo. Use the small one wherever the mascot renders at 32px or less.
 - `assets/favicon.png`, `assets/apple-touch-icon.png` — byte-for-byte copies of the app's generated `web/favicon.png` and `web/icons/Icon-192.png`.
 - `assets/fonts/` — self-hosted Arimo and Fredoka subsets with their OFL licences (see Fonts).
+- `assets/peach-demo.mp4`, `assets/peach-demo-poster.jpg`, `assets/peach-demo.en.vtt` — the demo video, its poster and its captions (see Demo video).
 - `CNAME` — GitHub Pages custom domain. Do not delete.
 - `.nojekyll` — disables GitHub Pages' Jekyll build step. Do not delete.
 
@@ -27,23 +28,45 @@ handoff disagree, it wins. The redesign's decisions are recorded in
   domain and in the waitlist email's `_subject`.
 - **Brand:** the wordmark is a lowercase "peach" in Fredoka 600 at -0.02em with
   only the "a" in `accent`. All other text is Arimo at weight 400 (700 only for
-  "Peach" in name pills).
+  the names in name pills: Peach and its agents).
 - **Shape:** pills for buttons, fields, chips and the eyebrow; 24px cards
   (`--corner-card`); 32px panels (`--corner-panel`); circles for mascot holders
   and round buttons; 18px chat bubbles. Colours come only from `tokens.css`.
-- **Hero:** the h1's accessible name is always "Peach, AI that takes things off
-  your plate". The visible ending rotates through what Peach does, and the pill
-  under the mascot says what it is doing; edit both together in the `steps`
-  list in `script.js`. The mascot is the master's own geometry, inlined so CSS
-  can animate it to the app's "Chat header" spec.
+- **Hero:** the h1 is the demo video's closing line, "Your errands, handled.
+  Your business, staffed.", with "handled." and "staffed." in `accent`. The
+  pill under the mascot rotates through what Peach is doing; edit the
+  `activities` list in `script.js`, which names only what beta users can do.
+  The mascot is the master's own geometry, inlined so CSS can animate it to the
+  app's "Chat header" spec.
 - **Motion:** it runs only while the `motion` class is on `<html>`. The script
   sets it unless the visitor prefers reduced motion or has pressed the hero's
   pause button, and pauses the hero while it is off screen or the tab is
   hidden. Without motion the mascot holds the app's still working pose.
-- **App screens:** the six phones are HTML illustrations of real app screens
+- **App screens:** the phones are HTML illustrations of app screens
   (`role="img"` with a one-line label), built at the app's 390×844 size and
-  scaled with `zoom`. Replace them with real screenshots when those exist; keep
-  the label.
+  scaled with `zoom`. The first three rows show real app screens; the errand
+  rows and the team chat show the demo video's scenes, with its names and
+  numbers, and the app's approval card ("Needs your OK"; Approve, Details, No).
+  Replace them with real screenshots when those exist; keep the label.
+- **Agents:** Tico (Sales), Ashley (Accountant) and Simba (Marketing) are the
+  demo's business team. Until the app has their avatars, they use the mascot
+  recoloured with the demo's CSS filters, the one exception to colours coming
+  only from `tokens.css`.
+- **Features not live yet:** the page describes Peach as the demo shows it,
+  without "Coming soon" pills, and has no privacy or FAQ section (the owner's
+  call, November 2026). Only the hero's "Soon, it can staff your business
+  too" says some of it is still ahead. Today that is reading your inbox,
+  making calls, cancelling subscriptions and the whole business team. Keep
+  such features out of the hero's rotating pill, and update the privacy policy
+  and terms before any of them goes live.
+- **Demo video:** the section under the hero plays `assets/peach-demo.mp4`, the
+  pitch video from `~/Projects/peach33-pitch-video` (`out/peach-pitch-1080p.mp4`,
+  copied with `ffmpeg -c copy -movflags +faststart` so it starts before it has
+  fully downloaded). The poster is its frame 3150, and the captions follow the
+  narration script, timed from a transcription. When the video is re-rendered,
+  replace all three files. Its music is Mixkit's "A Blue Day" (free licence,
+  which allows website videos), and the voice-over was made on a paid
+  ElevenLabs plan.
 - **Footer:** the Privacy policy, Terms and Contact links return with the legal
   pages (work item #149, branch `add-privacy-terms`).
 
@@ -91,8 +114,8 @@ With JavaScript, each form shows inline invalid-email, sending, success, and
 request-error states. Repeated submits are blocked while a request is pending,
 and requests time out after 15 seconds so the user can retry. On success, the
 submitted form is replaced by its confirmation. Without JavaScript, native
-email validation and standard form submission still work. The FAQ uses native
-`details` elements, and section links remain available without JavaScript.
+email validation and standard form submission still work, and section links
+remain available without JavaScript.
 
 Do not send test signups to the live endpoint; intercept requests locally when
 checking submission states.
