@@ -60,7 +60,7 @@
     <div class="container">
       <article class="legal-article" aria-labelledby="legal-title">
         <header class="legal-header">
-          <p class="eyebrow-pill"><span class="eyebrow-dot" aria-hidden="true"></span>Effective and last updated [[EFFECTIVE DATE]]</p>
+          <p class="eyebrow-pill"><span class="eyebrow-dot" aria-hidden="true"></span>Effective and last updated November 3, 2026</p>
           <h1 id="legal-title">Privacy policy</h1>
           <p class="legal-intro">This policy explains what personal data the Peach app, the service behind it and the peach33.com website collect, why, who we share it with, how long we keep it, and the choices you have.</p>
         </header>
@@ -102,7 +102,7 @@
 
         <section id="who-we-are" class="legal-section" aria-labelledby="who-we-are-title">
           <h2 id="who-we-are-title">Who we are</h2>
-          <p>Peach is operated by [[OWNER LEGAL NAME]], a sole proprietor based in [[CITY, STATE/REGION, COUNTRY]] (“Peach33”, “we”, “us”). We decide how and why your personal data is processed, which makes us the data controller.</p>
+          <p>Peach is operated by Peach33 (“we”, “us”), a sole proprietorship based in San Francisco, California, USA. We decide how and why your personal data is processed, which makes us the data controller.</p>
           <p>This policy covers the Peach iOS app, the online service it connects to, and the website at peach33.com. Questions go to <a href="mailto:support@peach33.com">support@peach33.com</a>.</p>
         </section>
 
@@ -133,8 +133,8 @@
           <h3 id="documents">Documents you upload</h3>
           <p>You can upload a text, Markdown or PDF file (up to 2 MB each) so Peach can answer questions about it. We extract the file’s text, split it into passages, and create embeddings: lists of numbers that let Peach find the passages relevant to a question. We store the file name, type, size, a fingerprint (hash) of the file, the extracted text, the passages and their embeddings. We do not keep the original file.</p>
 
-          <h3 id="web-pages">Web pages and web search</h3>
-          <p>If you allow Peach to read the web, it can fetch public web pages and search the web for you. Our servers make these requests, so websites and the search provider see our server’s address rather than yours. To search, Peach sends search terms it writes for your request to [[WEB SEARCH PROVIDER: Brave Search or Microsoft Azure, whichever production uses]]. What Peach reads, including search results, becomes part of your conversation.</p>
+          <h3 id="web-pages">Web pages, web search and weather</h3>
+          <p>If you allow Peach to read the web, it can fetch public web pages, search the web and look up the weather for you. Our servers make these requests, so websites, search providers and weather services see our server’s address rather than yours. To search, Peach sends search terms it writes for your request to Brave Search or to Microsoft’s web search for Azure, which uses Bing, whichever we have set up. Microsoft handles searches sent to Bing under its own terms and the Microsoft Privacy Statement, not the data-processing terms that cover Azure, and may process them outside the region our Azure service runs in. To look up the weather, Peach asks Brave Search, which answers with OpenWeatherMap data and receives the name of the place, and, for places in the United States, it can ask the US National Weather Service (api.weather.gov), which receives the place’s approximate coordinates. What Peach reads, including search results and weather reports, becomes part of your conversation.</p>
 
           <h3 id="location">Your approximate location</h3>
           <p>Location sharing is off on each of your devices unless you turn it on there, when the app offers it or in Settings, Location, and allow the app to use your location while you are using it. It lets Peach answer questions about the weather and places near you.</p>
@@ -142,7 +142,7 @@
             <li><span>When the app reads it.</span> Only while you are using the app: when you open it or return to it, then at most every 15 minutes. The app never reads your location in the background.</li>
             <li><span>What the app sends.</span> Your phone’s position (latitude and longitude, approximate or precise, depending on what you allow), how accurate the phone says it is, when it was read, and the place names: city or town, state or region, and country. To find these names, iOS sends the position to Apple’s geocoding service. The app sends a reading when it starts, when you turn sharing on and when you sign in, and after that only when you have moved more than about 1 km, the place names have changed, or the last one it sent is more than 3 hours old.</li>
             <li><span>What we keep.</span> Only your latest location: one per account, the most recently read from any of your devices, never a history. Our server rounds the coordinates to 2 decimal places (about 1 km) before storing them, together with the accuracy, when the phone read the position, when we received it and the place names. The exact position is not stored.</li>
-            <li><span>How Peach uses it.</span> Peach, including your routines, sees the place names and how long ago the position was read, never the coordinates. For 24 hours it treats them as where you are, and after that as where you last were. When Peach searches the web for you, the search terms it writes can include them.</li>
+            <li><span>How Peach uses it.</span> Peach, including your routines, sees the place names and how long ago the position was read, never the coordinates. For 24 hours it treats them as where you are, and after that as where you last were. When Peach searches the web or looks up the weather for you, what it sends can include them.</li>
             <li><span>Turning it off.</span> Turn location sharing off in Settings, Location. The app stops reading your location and asks us to delete it, and we remove it from our database. We keep only the time sharing was turned off, so that a reading taken before then is ignored. The setting applies only to the device where you change it: another of your devices where sharing is still on keeps sending readings, and we store its next one. To stop sharing completely, turn it off on each device. Turning sharing off does not delete messages or memories that mention a place, such as an earlier answer about the weather; see <a href="#deletion-partial">Deleting individual items</a>. If you withdraw the app’s location permission in your phone’s settings instead, the app turns sharing off the same way the next time you open it.</li>
             <li><span>Signing out.</span> The app stops reading your location on that device. The location we hold stays until a newer reading replaces it, you turn sharing off or you delete your account. It is never deleted automatically, whatever its age.</li>
           </ul>
@@ -196,7 +196,7 @@
             <li>passages from documents you upload, so Azure can create their embeddings.</li>
           </ul>
           <p>We do not include your account email address or password in these requests.</p>
-          <p>Microsoft processes this content as our service provider to generate Peach’s responses. [[CONFIRM AND STATE: how long Microsoft Azure retains prompts and outputs for this deployment (for example for abuse monitoring), and whether Microsoft may use them to train or improve models.]] We do not train AI models on your content.</p>
+          <p>Microsoft processes this content as our service provider to generate Peach’s responses. Microsoft does not use this content to train or improve AI models or share it with OpenAI. It checks it automatically for misuse and may store flagged content for review by authorized Microsoft staff. We do not ask Azure to store your conversations. We do not train AI models on your content.</p>
           <p>Before you first chat with Peach, the app tells you about this and asks you to agree to sending this content to Microsoft Azure. Your answer is stored only on your device. Peach cannot work without this processing: if you do not agree, sign out. To stop this processing later, stop using Peach and delete your account.</p>
           <p>Peach’s replies are generated automatically. We do not use automated decision-making that has legal or similarly significant effects on you.</p>
         </section>
@@ -222,21 +222,20 @@
             <li><span>Apple</span> distributes the beta through TestFlight. Apple handles your invitation and installation under Apple’s own privacy policy and makes certain beta information available to us, such as the email address you were invited with (if we invited you by email), install and session counts, crash reports, and any feedback or screenshots you choose to send through TestFlight.</li>
             <li><span>Apple Push Notification service</span> delivers push notifications if you allow them, so it receives each notification’s content and your push token.</li>
             <li><span>Apple’s geocoding service</span> names the place you are in if you share your location, so it receives your phone’s position from iOS, under Apple’s own privacy policy.</li>
-            <li><span>[[WEB SEARCH PROVIDER]]</span> runs web searches for Peach, so it receives the search terms Peach sends, which can include the name of the place you are in if you share your location (see <a href="#web-pages">Web pages and web search</a>).</li>
-            <li><span>[[EMAIL PROVIDER]]</span> hosts our support mailbox and the email account we use to send beta invitations, so it processes the emails you send us and your email address if we invite you by email.</li>
+            <li><span>Brave Search</span> runs web searches and weather lookups for Peach when we use it for search, so it receives the search terms and place names Peach sends, which can include the name of the place you are in if you share your location (see <a href="#web-pages">Web pages, web search and weather</a>).</li>
+            <li><span>Microsoft Bing</span> runs web searches for Peach when we use Microsoft’s web search for Azure instead, so it receives the search terms Peach sends, under Microsoft’s own terms and privacy statement (see <a href="#web-pages">Web pages, web search and weather</a>).</li>
+            <li><span>Microsoft 365</span> hosts our support mailbox and the email account we use to send beta invitations, so it processes the emails you send us, your email address if we invite you by email, and the waitlist sign-ups Formspree emails us.</li>
             <li><span>GitHub (with its content delivery network, Fastly) and Formspree</span> serve the peach33.com website and its waitlist. See <a href="#website-data">Data the website collects</a>.</li>
           </ul>
-          <p>Microsoft Azure and Fly.io process data on our behalf under data-processing terms that require them to protect it at least as well as this policy describes. [[CONFIRM: that Microsoft Azure’s and Fly.io’s data processing terms apply to this account.]] The other providers handle data under their own service and privacy terms.</p>
-          <p>[[CONFIRM: that no administrator-configured tool servers (“Connected tools”) are enabled in production; if any are, name each provider here and what it receives.]]</p>
-          <p>[[CONFIRM WITH #254: if weather lookups are turned on in production, describe them under “Web pages and web search” and add the US National Weather Service (api.weather.gov) here: it receives the approximate coordinates of places in the United States that Peach looks up. If production uses Brave Search, also say that Brave answers weather lookups for the place named, with OpenWeatherMap data.]]</p>
-          <p>Websites that Peach reads for you, and the search provider, receive requests from our servers, as described above. We may also disclose data if the law requires it, or where needed to protect the rights, property or safety of our users, the public or us. If Peach33 is transferred to someone else, your data would go with it under this policy, and we would tell you first.</p>
+          <p>Microsoft (for Azure and Microsoft 365) and Fly.io process data on our behalf under data-processing terms that require them to protect it at least as well as this policy describes. The other providers, including Microsoft for Bing searches, handle data under their own service and privacy terms.</p>
+          <p>Websites that Peach reads for you, the search provider and the US National Weather Service receive requests from our servers, as described above. We may also disclose data if the law requires it, or where needed to protect the rights, property or safety of our users, the public or us. If Peach33 is transferred to someone else, your data would go with it under this policy, and we would tell you first.</p>
           <p>Nothing you share with Peach is shown to other users.</p>
         </section>
 
         <section id="website-data" class="legal-section" aria-labelledby="website-data-title">
           <h2 id="website-data-title">Data the website collects</h2>
           <h3 id="waitlist">Waitlist</h3>
-          <p>If you join the waitlist on peach33.com, your email address is sent to Formspree, the form service we use. Like any web request, Formspree also receives your IP address, browser information and the address of the page you came from. Formspree emails each sign-up to us at [[WAITLIST NOTIFICATION INBOX PROVIDER]]. We use your email address only to invite you to Peach or tell you when your spot opens. If you submit the form with JavaScript turned off, Formspree handles it on its own pages. [[FORMSPREE reCAPTCHA ON/OFF: if on, add “and may show a Google reCAPTCHA check.”]] We keep waitlist emails for [[WAITLIST RETENTION PERIOD]]. To be removed from the waitlist, email us.</p>
+          <p>If you join the waitlist on peach33.com, your email address is sent to Formspree, the form service we use. Like any web request, Formspree also receives your IP address, browser information and the address of the page you came from. Formspree emails each sign-up to our Microsoft 365 mailbox. We use your email address only to invite you to Peach or tell you when your spot opens. If you submit the form with JavaScript turned off, Formspree handles it on its own pages and may show a Google reCAPTCHA check. We keep your waitlist email until we invite you or you ask to be removed. To be removed from the waitlist, email us.</p>
           <h3 id="fonts-and-hosting">Fonts and hosting</h3>
           <p>The site serves its own fonts, so no font service receives your IP address. The site is hosted on GitHub Pages, served through Fastly’s network; GitHub logs visitors’ IP addresses for security purposes.</p>
           <h3 id="no-cookies">No cookies or trackers</h3>
@@ -254,7 +253,7 @@
             <li><span>Abuse-protection counters:</span> deleted after they expire.</li>
             <li><span>Usage records:</span> kept for cost and abuse tracking, with no set deletion date. They never contain message content, and when you delete your account they are unlinked from it.</li>
             <li><span>Operational records:</span> records of setting up and removing your assistant’s machine, and the log of administrative actions, are kept after account deletion, with no set deletion date. They contain your former account’s reference number but no email, name or content.</li>
-            <li><span>Server logs:</span> kept by Fly.io for [[LOG RETENTION PERIOD]].</li>
+            <li><span>Server logs:</span> kept by Fly.io for 7 days.</li>
             <li><span>Backups:</span> our database is backed up daily and each backup is kept for 5 days, so deleted data can remain in backups for up to about 5 days.</li>
           </ul>
         </section>
@@ -324,12 +323,12 @@
 
         <section id="children" class="legal-section" aria-labelledby="children-title">
           <h2 id="children-title">Children</h2>
-          <p>Peach is not directed at children and is not for anyone under [[MINIMUM AGE]]. If we learn that we have collected personal data from someone under that age, or from a child under 13, we will delete the account and its data. If you believe a child is using Peach, email us.</p>
+          <p>Peach is not directed at children and is not for anyone under 18. If we learn that we have collected personal data from someone under that age, or from a child under 13, we will delete the account and its data. If you believe a child is using Peach, email us.</p>
         </section>
 
         <section id="international-transfers" class="legal-section" aria-labelledby="international-transfers-title">
           <h2 id="international-transfers-title">Where data is processed</h2>
-          <p>We are based in [[CITY, STATE/REGION, COUNTRY]]. Our service, database and your assistant’s machine run on Fly.io in the United States (Ashburn, Virginia). Microsoft Azure processes AI requests in [[AZURE REGION]]. If you use Peach from another country, your data is transferred to and processed in these places. [[CONFIRM: safeguards used for transfers from the EU/UK, for example the providers’ Standard Contractual Clauses.]]</p>
+          <p>We are based in San Francisco, California, USA. Our service, database and your assistant’s machine run on Fly.io in the United States (Ashburn, Virginia). Microsoft Azure processes AI requests in [[AZURE REGION]]. If you use Peach from another country, your data is transferred to and processed in these places. Microsoft and Fly.io handle data from the EU and UK under the Standard Contractual Clauses in their data processing terms. Microsoft is also certified under the EU-U.S. Data Privacy Framework.</p>
         </section>
 
         <section id="changes" class="legal-section" aria-labelledby="changes-title">
@@ -340,8 +339,8 @@
         <section id="contact" class="legal-section" aria-labelledby="contact-title">
           <h2 id="contact-title">Contact</h2>
           <address>
-            [[OWNER LEGAL NAME]]<br>
-            [[CITY, STATE/REGION, COUNTRY]]<br>
+            Peach33<br>
+            San Francisco, California, USA<br>
             <a href="mailto:support@peach33.com">support@peach33.com</a>
           </address>
         </section>

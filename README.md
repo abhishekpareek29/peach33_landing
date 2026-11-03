@@ -67,8 +67,8 @@ back to `/#…` except Privacy, which goes to `/privacy`. Every section keeps a
 stable `id` so the app can deep-link to it, for example `/privacy#ai-processing`
 or `/privacy#deletion`; never rename or remove one.
 
-In the pages, the product is "Peach"; "Peach33" is only the defined name of the
-operator ("Peach33", "we", "us") and the business that could be transferred.
+In the pages, the product is "Peach"; "Peach33" is the operator ("we", "us")
+and the business that could be transferred.
 
 Text in `[[DOUBLE BRACKETS]]` is a placeholder the owner must fill in before
 the pages are published (work item #149). When either page changes, update its
@@ -76,22 +76,29 @@ the pages are published (work item #149). When either page changes, update its
 
 Placeholders to fill in:
 
-- `[[EFFECTIVE DATE]]` (both pages)
-- `[[OWNER LEGAL NAME]]` and `[[CITY, STATE/REGION, COUNTRY]]` (both pages)
-- `[[MINIMUM AGE]]` (both pages)
-- `[[WEB SEARCH PROVIDER]]`: Brave Search or Microsoft Azure, whichever
-  production uses (both pages)
-- `[[GOVERNING LAW JURISDICTION]]` and `[[LIABILITY CAP AMOUNT]]` (terms)
-- `[[EMAIL PROVIDER]]`, `[[WAITLIST NOTIFICATION INBOX PROVIDER]]`,
-  `[[WAITLIST RETENTION PERIOD]]`, `[[LOG RETENTION PERIOD]]` and
-  `[[AZURE REGION]]` (privacy)
-- `[[FORMSPREE reCAPTCHA ON/OFF: …]]` (privacy, waitlist)
-- `[[CONFIRM AND STATE: …]]` Azure prompt retention and training use (privacy)
-- `[[CONFIRM: …]]` Azure and Fly.io data-processing terms, no enabled
-  "Connected tools" servers in production, and EU/UK transfer safeguards
-  (privacy)
-- `[[CONFIRM WITH #254: …]]` whether weather lookups are on in production, and
-  which weather providers they reach (privacy)
+- `[[AZURE REGION]]` (privacy, "Where data is processed"): the Azure region of
+  the model deployment. If its deployment type is Global or Data Zone, say
+  that Microsoft may process requests in other regions of the world or of
+  that data zone.
+
+Before publishing, the pages also depend on these being true:
+
+- **Fly.io's data processing agreement is signed.** It is not automatic: Fly
+  pre-signs it and it takes effect when the customer signs it
+  (fly.io/documents). The policy says Fly.io processes data under
+  data-processing terms with the Standard Contractual Clauses; check that the
+  signed agreement includes them.
+- **support@peach33.com receives mail.** Both pages, and the app, give it as
+  the contact, and the policy says Microsoft 365 hosts it, but peach33.com had
+  no MX records on 2026-11-03.
+- **The waitlist promise is kept:** when someone is invited or asks to be
+  removed, delete their sign-up in Formspree and its email in the mailbox.
+- **Search and weather match production.** The policy names Brave Search and
+  Microsoft's web search for Azure (Bing), and weather lookups through Brave
+  and the US National Weather Service. If production adds another provider,
+  or `WEATHER_ENABLED` changes, update both pages.
+- **No "Connected tools" servers are enabled.** Before enabling one, name its
+  provider and what it receives under "Who we share data with".
 
 Pushing `main` deploys, so before merging run this and expect no output:
 
