@@ -72,6 +72,7 @@
           <ul>
             <li>We collect your email address, a password (stored only as a salted hash) and the things you share with Peach, your assistant.</li>
             <li>To answer you, Peach sends your messages and the content a task needs to Microsoft Azure, which runs the AI models. The app asks for your permission before this happens.</li>
+            <li>Location sharing is off unless you turn it on. If you do, we keep only your latest approximate location, and Peach sees the place names, never the coordinates. Turning sharing off deletes it.</li>
             <li>Your data is stored in a database hosted by Fly.io in the United States.</li>
             <li>The app has no advertising, analytics or crash-reporting tools, and does not track you. We do not sell your personal information.</li>
             <li>You can delete your account in the app at any time.</li>
@@ -135,6 +136,18 @@
           <h3 id="web-pages">Web pages and web search</h3>
           <p>If you allow Peach to read the web, it can fetch public web pages and search the web for you. Our servers make these requests, so websites and the search provider see our server’s address rather than yours. To search, Peach sends search terms it writes for your request to [[WEB SEARCH PROVIDER: Brave Search or Microsoft Azure, whichever production uses]]. What Peach reads, including search results, becomes part of your conversation.</p>
 
+          <h3 id="location">Your approximate location</h3>
+          <p>Location sharing is off unless you turn it on, when the app offers it or in Settings, Location, and allow the app to use your location while you are using it. It lets Peach answer questions about the weather and places near you.</p>
+          <ul>
+            <li><span>When the app reads it.</span> Only while you are using the app: when you open it or return to it, then at most every 15 minutes. The app never reads your location in the background.</li>
+            <li><span>What the app sends.</span> Your phone’s position (latitude and longitude, approximate or precise, depending on what you allow), how accurate the phone says it is, when it was read, and the place names: city or town, state or region, and country. To find these names, iOS sends the position to Apple’s geocoding service. The app sends a reading when it starts, when you turn sharing on and when you sign in, and after that only when you have moved more than about 1 km, the place names have changed, or the last one it sent is more than 3 hours old.</li>
+            <li><span>What we keep.</span> Only your latest location: one per account, from whichever of your devices sent it last, never a history. Our server rounds the coordinates to 2 decimal places (about 1 km) before storing them, together with the accuracy, when the phone read the position, when we received it and the place names. The exact position is not stored.</li>
+            <li><span>How Peach uses it.</span> Peach, including your routines, sees the place names and how long ago the position was read, never the coordinates. For 24 hours it treats them as where you are, and after that as where you last were. When Peach searches the web for you, the search terms it writes can include them.</li>
+            <li><span>Turning it off.</span> Turn location sharing off in Settings, Location. The app stops reading your location and asks us to delete it, and we remove it from our database. We keep only the time sharing was turned off, so that a reading sent before then is ignored. If you withdraw the app’s location permission in your phone’s settings instead, the app turns sharing off the same way the next time you open it.</li>
+            <li><span>Signing out.</span> The app stops reading your location on that device. The location we hold stays until a newer reading replaces it, you turn sharing off or you delete your account. It is never deleted automatically, whatever its age.</li>
+          </ul>
+          <p>We do not write your location or the place names to our logs. [[CONFIRM WITH #256 PART 2: once weather lookups use your stored location, add that for places in the United States the US National Weather Service (api.weather.gov) receives your stored coordinates, rounded to about 1 km, and add it under “Who we share data with”.]]</p>
+
           <h3 id="connected-accounts">Connected accounts</h3>
           <p>Connected accounts, such as email or calendar, are not currently available. If we add them, connecting one will be your choice, and we will update this policy before the feature is available.</p>
 
@@ -151,7 +164,7 @@
           <p>Each account gets its own virtual machine, hosted by Fly.io, that runs your assistant. It has no permanent storage of its own: your data is kept in our central database, also hosted by Fly.io, and the machine only holds what it is working on.</p>
 
           <h3 id="not-collected">What the app does not collect</h3>
-          <p>The only iOS permission the app may ask for is to send you notifications. If you allow notifications, the app sends us the push token Apple assigns to the app on your phone, plus an ID for this installation of the app. The app does not access your location, contacts, photos, camera or microphone, and apart from the push token, it reads no advertising identifier or other device identifier. Apart from the technical information any internet connection carries, it does not send your device model, operating system version or language settings to us. It contains no advertising, analytics or crash-reporting tools. If you use TestFlight, Apple shares crash reports and feedback with us, which include your device model and iOS version (see <a href="#sharing">Who we share data with</a>).</p>
+          <p>The app asks for an iOS permission only when you use a feature that needs it: notifications; your location, if you turn on location sharing (see <a href="#location">Your approximate location</a>); and the microphone and speech recognition, if you dictate a message. Dictation is turned into text on your phone: the audio does not leave it, and we receive only the text you send. If you allow notifications, the app sends us the push token Apple assigns to the app on your phone, plus an ID for this installation of the app. The app does not access your contacts, photos or camera, and apart from the push token, it reads no advertising identifier or other device identifier. Apart from the technical information any internet connection carries, it does not send your device model, operating system version or language settings to us. It contains no advertising, analytics or crash-reporting tools. If you use TestFlight, Apple shares crash reports and feedback with us, which include your device model and iOS version (see <a href="#sharing">Who we share data with</a>).</p>
 
           <h3 id="support-email">When you contact us</h3>
           <p>If you email us, we receive your email address and whatever you write, and use them to reply.</p>
@@ -164,11 +177,12 @@
             <li>your sign-in tokens;</li>
             <li>messages you have written that have not yet reached our servers, plus delivery receipts (the text is removed once the server accepts a message);</li>
             <li>reference numbers of requests and approval decisions the app is still tracking;</li>
+            <li>your location-sharing choice: your account’s reference number, whether sharing is on, whether the app has offered it, and whether the app still has to ask us to delete your location. It never contains your position or place names;</li>
             <li>a record that you accepted the AI notice: your account’s reference number and the notice version.</li>
             <li>[[CONFIRM WITH #153: if the app keeps the installation ID (client_device_id) in the Keychain, describe it here; otherwise delete this item.]]</li>
           </ul>
           <p>Your conversations, memories, routines and settings are loaded from our servers when you use the app and are not saved to your device’s storage.</p>
-          <p>Signing out removes your sign-in tokens; messages you wrote that never reached our servers stay on the device for that account. Deleting your account also tries to remove those unsent messages and tracking data, but leaves the AI-notice record. iOS may keep Keychain items after you delete the app.</p>
+          <p>Signing out removes your sign-in tokens; messages you wrote that never reached our servers, and your location-sharing choice, stay on the device for that account. Deleting your account also tries to remove those unsent messages and tracking data, but leaves the AI-notice record and the location-sharing choice. iOS may keep Keychain items after you delete the app.</p>
         </section>
 
         <section id="ai-processing" class="legal-section" aria-labelledby="ai-processing-title">
@@ -177,6 +191,7 @@
           <ul>
             <li>your message and the recent conversation, including earlier summaries;</li>
             <li>your saved memories, your assistant’s name, the current time and your time zone, and your routines when relevant;</li>
+            <li>if you share your location, the place names and how long ago your phone read the position, never the coordinates;</li>
             <li>the content a task needs, such as passages from documents you uploaded, text from web pages Peach reads, and web search results;</li>
             <li>passages from documents you upload, so Azure can create their embeddings.</li>
           </ul>
@@ -189,7 +204,7 @@
         <section id="how-we-use-data" class="legal-section" aria-labelledby="how-we-use-data-title">
           <h2 id="how-we-use-data-title">How we use data</h2>
           <ul>
-            <li>To provide Peach: to create and run your account and assistant, answer your messages, remember what you asked it to, run your routines and search your documents.</li>
+            <li>To provide Peach: to create and run your account and assistant, answer your messages, remember what you asked it to, run your routines, search your documents and, if you share your location, answer questions about the weather and places near you.</li>
             <li>To keep the service secure and prevent abuse, including sign-in limits and daily usage limits.</li>
             <li>To operate, troubleshoot and improve the reliability of the service.</li>
             <li>To respond to you when you contact us, and to tell you about important changes to the beta.</li>
@@ -206,12 +221,14 @@
             <li><span>Fly.io</span> hosts our service, your assistant’s machine, and our database and its backups in the United States (Ashburn, Virginia), and processes our server logs in the United States.</li>
             <li><span>Apple</span> distributes the beta through TestFlight. Apple handles your invitation and installation under Apple’s own privacy policy and makes certain beta information available to us, such as the email address you were invited with (if we invited you by email), install and session counts, crash reports, and any feedback or screenshots you choose to send through TestFlight.</li>
             <li><span>Apple Push Notification service</span> delivers push notifications if you allow them, so it receives each notification’s content and your push token.</li>
-            <li><span>[[WEB SEARCH PROVIDER]]</span> runs web searches for Peach, so it receives the search terms Peach sends (see <a href="#web-pages">Web pages and web search</a>).</li>
+            <li><span>Apple’s geocoding service</span> names the place you are in if you share your location, so it receives your phone’s position from iOS, under Apple’s own privacy policy.</li>
+            <li><span>[[WEB SEARCH PROVIDER]]</span> runs web searches for Peach, so it receives the search terms Peach sends, which can include the name of the place you are in if you share your location (see <a href="#web-pages">Web pages and web search</a>).</li>
             <li><span>[[EMAIL PROVIDER]]</span> hosts our support mailbox and the email account we use to send beta invitations, so it processes the emails you send us and your email address if we invite you by email.</li>
             <li><span>GitHub (with its content delivery network, Fastly) and Formspree</span> serve the peach33.com website and its waitlist. See <a href="#website-data">Data the website collects</a>.</li>
           </ul>
           <p>Microsoft Azure and Fly.io process data on our behalf under data-processing terms that require them to protect it at least as well as this policy describes. [[CONFIRM: that Microsoft Azure’s and Fly.io’s data processing terms apply to this account.]] The other providers handle data under their own service and privacy terms.</p>
           <p>[[CONFIRM: that no administrator-configured tool servers (“Connected tools”) are enabled in production; if any are, name each provider here and what it receives.]]</p>
+          <p>[[CONFIRM WITH #254: if weather lookups are turned on in production, describe them under “Web pages and web search” and add the US National Weather Service (api.weather.gov) here: it receives the approximate coordinates of places in the United States that Peach looks up. If production uses Brave Search, also say that Brave answers weather lookups for the place named, with OpenWeatherMap data.]]</p>
           <p>Websites that Peach reads for you, and the search provider, receive requests from our servers, as described above. We may also disclose data if the law requires it, or where needed to protect the rights, property or safety of our users, the public or us. If Peach33 is transferred to someone else, your data would go with it under this policy, and we would tell you first.</p>
           <p>Nothing you share with Peach is shown to other users.</p>
         </section>
@@ -231,6 +248,7 @@
           <ul>
             <li><span>Account, settings, conversations, memories, routines, notifications and documents:</span> until you delete them or delete your account. Nothing in this list expires automatically.</li>
             <li><span>Working copies of messages:</span> removed 7 days after your assistant finishes with the message.</li>
+            <li><span>Location:</span> only the latest is kept, whatever its age, until a newer reading replaces it, you turn location sharing off or you delete your account. After you turn sharing off, we keep only the time you did so, until you delete your account.</li>
             <li><span>Sign-in sessions:</span> refresh tokens expire after 30 days and are revoked when you sign out; their records are deleted with your account.</li>
             <li><span>Push tokens:</span> deleted when you sign out, when Apple reports that a token is no longer valid, or with your account. Each notification’s delivery record keeps its own copy of the token until that notification is deleted. [[CONFIRM WITH #153: that signing out unregisters the phone.]]</li>
             <li><span>Abuse-protection counters:</span> deleted after they expire.</li>
@@ -245,7 +263,7 @@
           <h2 id="deletion-title">Deleting your account</h2>
           <p>You can delete your account in the app under Settings, Delete account. Deletion is available to everyone, wherever you live.</p>
           <h3 id="deletion-immediate">What happens right away</h3>
-          <p>Your account is disabled and you are signed out on every device. Your sign-in sessions and your assistant’s access are revoked, your routines stop, queued messages and pending notifications are cleared, and outstanding invitations for your email are revoked.</p>
+          <p>Your account is disabled and you are signed out on every device. Your sign-in sessions and your assistant’s access are revoked, your routines stop, queued messages and pending notifications are cleared, your location is erased, and outstanding invitations for your email are revoked.</p>
           <h3 id="deletion-background">What happens next</h3>
           <p>In the background, we delete your assistant’s machine. Once Fly.io confirms it is gone, we permanently delete your account record and everything linked to it: conversations, memories, routines, notifications (with the push-token copies kept for their delivery), uploaded documents, settings, sessions and push tokens. If a step fails, your account stays disabled and signed out. We retry automatically, and if that does not work, we finish the deletion manually. Email us if you would like confirmation that it is complete.</p>
           <h3 id="deletion-kept">What remains</h3>
@@ -254,7 +272,7 @@
             <li>Usage records with no content, unlinked from your account.</li>
             <li>Operational records that contain your former account’s reference number only.</li>
             <li>Server logs, for the period described above.</li>
-            <li>On your device, the AI-notice record described in <a href="#on-device">Data stored on your device</a>.</li>
+            <li>On your device, the AI-notice record and the location-sharing choice described in <a href="#on-device">Data stored on your device</a>.</li>
           </ul>
           <h3 id="deletion-partial">Deleting individual items</h3>
           <p>You can delete individual memories in the app. To delete a specific conversation or uploaded document without deleting your account, email us. When we delete a conversation, we erase its messages, title and summaries; basic records such as timestamps remain until you delete your account.</p>
@@ -280,6 +298,7 @@
             <li>Turn Peach’s abilities on or off, such as memory, routines, reading web pages and reading your documents.</li>
             <li>Choose which kinds of actions Peach must ask you about first.</li>
             <li>View and delete memories.</li>
+            <li>Turn location sharing on or off in Settings, Location. Turning it off deletes your location from our servers. If you withdraw the app’s location permission in your phone’s settings, the app turns sharing off the next time you open it.</li>
             <li>Sign out, or delete your account.</li>
           </ul>
           <h3 id="by-email">By email</h3>
@@ -296,6 +315,7 @@
           <ul>
             <li><span>Contract:</span> to provide Peach under our <a href="/terms">Terms</a>, including sending content to Microsoft Azure so Peach can answer you. The screen in the app that asks you to agree to this is a notice Apple requires; it is not a separate legal basis.</li>
             <li><span>Consent:</span> to use your waitlist email. You can withdraw consent at any time by emailing us; this does not affect processing that already happened.</li>
+            <li><span>Consent:</span> to use your location, if you turn on location sharing. You can withdraw consent at any time by turning sharing off; this does not affect processing that already happened.</li>
             <li><span>Legitimate interests:</span> to keep the service secure, prevent abuse, and keep usage, log and operational records.</li>
             <li><span>Legal obligation:</span> where the law requires us to keep or disclose data.</li>
           </ul>

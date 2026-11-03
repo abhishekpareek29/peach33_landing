@@ -92,6 +92,10 @@ Placeholders to fill in:
   (privacy)
 - `[[CONFIRM WITH #153: …]]` whether the app keeps the installation ID in the
   Keychain, and that signing out unregisters the phone for push (privacy)
+- `[[CONFIRM WITH #256 PART 2: …]]` the National Weather Service receiving
+  stored coordinates once weather lookups use the stored location (privacy)
+- `[[CONFIRM WITH #254: …]]` whether weather lookups are on in production, and
+  which weather providers they reach (privacy)
 
 Pushing `main` deploys, so before merging run this and expect no output:
 
@@ -101,7 +105,10 @@ grep -n '\[\[' index.html privacy.html terms.html
 
 The policy describes push notifications conditionally ("if you allow
 notifications"), so it stays accurate before and after the app starts asking
-(#153). It describes document upload as available, which is true only while
+(#153). Location sharing (#256, #257) is described the same way ("if you share
+your location"), so it stays accurate before the server reports
+`features.location` and the app starts offering it. It describes document
+upload as available, which is true only while
 the orchestrator's `EMBEDDING_MODEL` secret is set; if it is removed, update
 both pages. Calendar, approval requests and connected tools are described as
 not available yet; update both pages before any of them goes live.
