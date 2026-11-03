@@ -90,10 +90,6 @@ Placeholders to fill in:
 - `[[CONFIRM: …]]` Azure and Fly.io data-processing terms, no enabled
   "Connected tools" servers in production, and EU/UK transfer safeguards
   (privacy)
-- `[[CONFIRM WITH #153: …]]` whether the app keeps the installation ID in the
-  Keychain, and that signing out unregisters the phone for push (privacy)
-- `[[CONFIRM WITH #256 PART 2: …]]` the National Weather Service receiving
-  stored coordinates once weather lookups use the stored location (privacy)
 - `[[CONFIRM WITH #254: …]]` whether weather lookups are on in production, and
   which weather providers they reach (privacy)
 
@@ -107,7 +103,11 @@ The policy describes push notifications conditionally ("if you allow
 notifications"), so it stays accurate before and after the app starts asking
 (#153). Location sharing (#256, #257) is described the same way ("if you share
 your location"), so it stays accurate before the server reports
-`features.location` and the app starts offering it. It describes document
+`features.location` and the app starts offering it. Before part 2 of #256
+ships (weather lookups using the stored location), add to `#location` and
+"Who we share data with" that, for places in the United States, the US
+National Weather Service receives the stored coordinates, rounded to about
+1 km. It describes document
 upload as available, which is true only while
 the orchestrator's `EMBEDDING_MODEL` secret is set; if it is removed, update
 both pages. Calendar, approval requests and connected tools are described as

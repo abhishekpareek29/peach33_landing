@@ -146,7 +146,7 @@
             <li><span>Turning it off.</span> Turn location sharing off in Settings, Location. The app stops reading your location and asks us to delete it, and we remove it from our database. We keep only the time sharing was turned off, so that a reading taken before then is ignored. The setting applies only to the device where you change it: another of your devices where sharing is still on keeps sending readings, and we store its next one. To stop sharing completely, turn it off on each device. Turning sharing off does not delete messages or memories that mention a place, such as an earlier answer about the weather; see <a href="#deletion-partial">Deleting individual items</a>. If you withdraw the app’s location permission in your phone’s settings instead, the app turns sharing off the same way the next time you open it.</li>
             <li><span>Signing out.</span> The app stops reading your location on that device. The location we hold stays until a newer reading replaces it, you turn sharing off or you delete your account. It is never deleted automatically, whatever its age.</li>
           </ul>
-          <p>We do not write your location or the place names to our logs. [[CONFIRM WITH #256 PART 2: once weather lookups use your stored location, add that for places in the United States the US National Weather Service (api.weather.gov) receives your stored coordinates, rounded to about 1 km, and add it under “Who we share data with”.]]</p>
+          <p>We do not write your location or the place names to our logs.</p>
 
           <h3 id="connected-accounts">Connected accounts</h3>
           <p>Connected accounts, such as email or calendar, are not currently available. If we add them, connecting one will be your choice, and we will update this policy before the feature is available.</p>
@@ -178,11 +178,11 @@
             <li>messages you have written that have not yet reached our servers, plus delivery receipts (the text is removed once the server accepts a message);</li>
             <li>reference numbers of requests and approval decisions the app is still tracking;</li>
             <li>your location-sharing choice: your account’s reference number, whether sharing is on, whether you have answered the app’s offer to share it or turned sharing on, and whether the app still has to ask us to delete your location. It never contains your position or place names;</li>
-            <li>a record that you accepted the AI notice: your account’s reference number and the notice version.</li>
-            <li>[[CONFIRM WITH #153: if the app keeps the installation ID (client_device_id) in the Keychain, describe it here; otherwise delete this item.]]</li>
+            <li>a record that you accepted the AI notice: your account’s reference number and the notice version;</li>
+            <li>an ID for this installation of the app, which the app sends us with your push token if you allow notifications, and whether you have answered the app’s offer to turn them on. It contains nothing about your account and stays after you sign out.</li>
           </ul>
           <p>Your conversations, memories, routines and settings are loaded from our servers when you use the app and are not saved to your device’s storage.</p>
-          <p>Signing out removes your sign-in tokens; messages you wrote that never reached our servers, and your location-sharing choice, stay on the device for that account. Deleting your account also tries to remove those unsent messages and tracking data, but leaves the AI-notice record and the location-sharing choice. iOS may keep Keychain items after you delete the app.</p>
+          <p>Signing out removes your sign-in tokens; messages you wrote that never reached our servers, and your location-sharing choice, stay on the device for that account, and the installation ID stays for the app. Deleting your account also tries to remove those unsent messages and tracking data, but leaves the AI-notice record, the location-sharing choice and the installation ID. iOS may keep Keychain items after you delete the app.</p>
         </section>
 
         <section id="ai-processing" class="legal-section" aria-labelledby="ai-processing-title">
@@ -250,7 +250,7 @@
             <li><span>Working copies of messages:</span> removed 7 days after your assistant finishes with the message.</li>
             <li><span>Location:</span> only the latest is kept, whatever its age, until a newer reading replaces it, you turn location sharing off or you delete your account. After you turn sharing off, we keep only the time you did so, until you delete your account.</li>
             <li><span>Sign-in sessions:</span> refresh tokens expire after 30 days and are revoked when you sign out; their records are deleted with your account.</li>
-            <li><span>Push tokens:</span> deleted when you sign out, when Apple reports that a token is no longer valid, or with your account. Each notification’s delivery record keeps its own copy of the token until that notification is deleted. [[CONFIRM WITH #153: that signing out unregisters the phone.]]</li>
+            <li><span>Push tokens:</span> deleted when you sign out, when Apple reports that a token is no longer valid, or with your account. If the app can’t reach us when you sign out, the token is deleted later: when Apple reports it is no longer valid, when the app registers again on that phone, or with your account. Each notification’s delivery record keeps its own copy of the token until that notification is deleted.</li>
             <li><span>Abuse-protection counters:</span> deleted after they expire.</li>
             <li><span>Usage records:</span> kept for cost and abuse tracking, with no set deletion date. They never contain message content, and when you delete your account they are unlinked from it.</li>
             <li><span>Operational records:</span> records of setting up and removing your assistant’s machine, and the log of administrative actions, are kept after account deletion, with no set deletion date. They contain your former account’s reference number but no email, name or content.</li>
@@ -272,7 +272,7 @@
             <li>Usage records with no content, unlinked from your account.</li>
             <li>Operational records that contain your former account’s reference number only.</li>
             <li>Server logs, for the period described above.</li>
-            <li>On your device, the AI-notice record and the location-sharing choice described in <a href="#on-device">Data stored on your device</a>.</li>
+            <li>On your device, the AI-notice record, the location-sharing choice and the installation ID described in <a href="#on-device">Data stored on your device</a>.</li>
           </ul>
           <h3 id="deletion-partial">Deleting individual items</h3>
           <p>You can delete individual memories in the app. To delete a specific conversation or uploaded document without deleting your account, email us. When we delete a conversation, we erase its messages, title and summaries; basic records such as timestamps remain until you delete your account.</p>
