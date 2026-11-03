@@ -72,7 +72,7 @@
           <ul>
             <li>We collect your email address, a password (stored only as a salted hash) and the things you share with Peach, your assistant.</li>
             <li>To answer you, Peach sends your messages and the content a task needs to Microsoft Azure, which runs the AI models. The app asks for your permission before this happens.</li>
-            <li>Location sharing is off unless you turn it on. If you do, we keep only your latest approximate location, and Peach sees the place names, never the coordinates. Turning sharing off deletes it.</li>
+            <li>Location sharing is off unless you turn it on. If you do, we keep only your latest approximate location, and Peach sees the place names, never the coordinates. Turning sharing off deletes it, but another of your devices where sharing is still on keeps sending it.</li>
             <li>Your data is stored in a database hosted by Fly.io in the United States.</li>
             <li>The app has no advertising, analytics or crash-reporting tools, and does not track you. We do not sell your personal information.</li>
             <li>You can delete your account in the app at any time.</li>
@@ -137,13 +137,13 @@
           <p>If you allow Peach to read the web, it can fetch public web pages and search the web for you. Our servers make these requests, so websites and the search provider see our server’s address rather than yours. To search, Peach sends search terms it writes for your request to [[WEB SEARCH PROVIDER: Brave Search or Microsoft Azure, whichever production uses]]. What Peach reads, including search results, becomes part of your conversation.</p>
 
           <h3 id="location">Your approximate location</h3>
-          <p>Location sharing is off unless you turn it on, when the app offers it or in Settings, Location, and allow the app to use your location while you are using it. It lets Peach answer questions about the weather and places near you.</p>
+          <p>Location sharing is off on each of your devices unless you turn it on there, when the app offers it or in Settings, Location, and allow the app to use your location while you are using it. It lets Peach answer questions about the weather and places near you.</p>
           <ul>
             <li><span>When the app reads it.</span> Only while you are using the app: when you open it or return to it, then at most every 15 minutes. The app never reads your location in the background.</li>
             <li><span>What the app sends.</span> Your phone’s position (latitude and longitude, approximate or precise, depending on what you allow), how accurate the phone says it is, when it was read, and the place names: city or town, state or region, and country. To find these names, iOS sends the position to Apple’s geocoding service. The app sends a reading when it starts, when you turn sharing on and when you sign in, and after that only when you have moved more than about 1 km, the place names have changed, or the last one it sent is more than 3 hours old.</li>
-            <li><span>What we keep.</span> Only your latest location: one per account, from whichever of your devices sent it last, never a history. Our server rounds the coordinates to 2 decimal places (about 1 km) before storing them, together with the accuracy, when the phone read the position, when we received it and the place names. The exact position is not stored.</li>
+            <li><span>What we keep.</span> Only your latest location: one per account, the most recently read from any of your devices, never a history. Our server rounds the coordinates to 2 decimal places (about 1 km) before storing them, together with the accuracy, when the phone read the position, when we received it and the place names. The exact position is not stored.</li>
             <li><span>How Peach uses it.</span> Peach, including your routines, sees the place names and how long ago the position was read, never the coordinates. For 24 hours it treats them as where you are, and after that as where you last were. When Peach searches the web for you, the search terms it writes can include them.</li>
-            <li><span>Turning it off.</span> Turn location sharing off in Settings, Location. The app stops reading your location and asks us to delete it, and we remove it from our database. We keep only the time sharing was turned off, so that a reading sent before then is ignored. Turning sharing off does not delete messages or memories that mention a place, such as an earlier answer about the weather; see <a href="#deletion-partial">Deleting individual items</a>. If you withdraw the app’s location permission in your phone’s settings instead, the app turns sharing off the same way the next time you open it.</li>
+            <li><span>Turning it off.</span> Turn location sharing off in Settings, Location. The app stops reading your location and asks us to delete it, and we remove it from our database. We keep only the time sharing was turned off, so that a reading taken before then is ignored. The setting applies only to the device where you change it: another of your devices where sharing is still on keeps sending readings, and we store its next one. To stop sharing completely, turn it off on each device. Turning sharing off does not delete messages or memories that mention a place, such as an earlier answer about the weather; see <a href="#deletion-partial">Deleting individual items</a>. If you withdraw the app’s location permission in your phone’s settings instead, the app turns sharing off the same way the next time you open it.</li>
             <li><span>Signing out.</span> The app stops reading your location on that device. The location we hold stays until a newer reading replaces it, you turn sharing off or you delete your account. It is never deleted automatically, whatever its age.</li>
           </ul>
           <p>We do not write your location or the place names to our logs. [[CONFIRM WITH #256 PART 2: once weather lookups use your stored location, add that for places in the United States the US National Weather Service (api.weather.gov) receives your stored coordinates, rounded to about 1 km, and add it under “Who we share data with”.]]</p>
@@ -177,7 +177,7 @@
             <li>your sign-in tokens;</li>
             <li>messages you have written that have not yet reached our servers, plus delivery receipts (the text is removed once the server accepts a message);</li>
             <li>reference numbers of requests and approval decisions the app is still tracking;</li>
-            <li>your location-sharing choice: your account’s reference number, whether sharing is on, whether the app has offered it, and whether the app still has to ask us to delete your location. It never contains your position or place names;</li>
+            <li>your location-sharing choice: your account’s reference number, whether sharing is on, whether you have answered the app’s offer to share it or turned sharing on, and whether the app still has to ask us to delete your location. It never contains your position or place names;</li>
             <li>a record that you accepted the AI notice: your account’s reference number and the notice version.</li>
             <li>[[CONFIRM WITH #153: if the app keeps the installation ID (client_device_id) in the Keychain, describe it here; otherwise delete this item.]]</li>
           </ul>
@@ -298,7 +298,7 @@
             <li>Turn Peach’s abilities on or off, such as memory, routines, reading web pages and reading your documents.</li>
             <li>Choose which kinds of actions Peach must ask you about first.</li>
             <li>View and delete memories.</li>
-            <li>Turn location sharing on or off in Settings, Location. Turning it off deletes your location from our servers. If you withdraw the app’s location permission in your phone’s settings, the app turns sharing off the next time you open it.</li>
+            <li>Turn location sharing on or off in Settings, Location, on each of your devices. Turning it off deletes your location from our servers, but another of your devices where sharing is still on keeps sending it. If you withdraw the app’s location permission in your phone’s settings, the app turns sharing off the next time you open it.</li>
             <li>Sign out, or delete your account.</li>
           </ul>
           <h3 id="by-email">By email</h3>
@@ -315,7 +315,7 @@
           <ul>
             <li><span>Contract:</span> to provide Peach under our <a href="/terms">Terms</a>, including sending content to Microsoft Azure so Peach can answer you. The screen in the app that asks you to agree to this is a notice Apple requires; it is not a separate legal basis.</li>
             <li><span>Consent:</span> to use your waitlist email. You can withdraw consent at any time by emailing us; this does not affect processing that already happened.</li>
-            <li><span>Consent:</span> to use your location, if you turn on location sharing. You can withdraw consent at any time by turning sharing off; this does not affect processing that already happened.</li>
+            <li><span>Consent:</span> to use your location, if you turn on location sharing. You can withdraw consent at any time by turning sharing off on each of your devices; this does not affect processing that already happened.</li>
             <li><span>Legitimate interests:</span> to keep the service secure, prevent abuse, and keep usage, log and operational records.</li>
             <li><span>Legal obligation:</span> where the law requires us to keep or disclose data.</li>
           </ul>
