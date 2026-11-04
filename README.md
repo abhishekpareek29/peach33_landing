@@ -87,9 +87,21 @@ Before publishing, the pages also depend on these being true:
   (fly.io/documents). The policy says Fly.io processes data under
   data-processing terms with the Standard Contractual Clauses; check that the
   signed agreement includes them.
-- **support@peach33.com receives mail.** Both pages, and the app, give it as
-  the contact, and the policy says Microsoft 365 hosts it, but peach33.com had
-  no MX records on 2026-11-03.
+- **Email still matches the policy.** Since 2026-11-03 peach33.com's DNS is
+  on Cloudflare, and support@peach33.com is a Cloudflare Email Routing address
+  that forwards to the owner's inbox. The policy names Cloudflare and calls
+  the inbox's host "our email provider". If mail moves (for example to Google
+  Workspace, whose MX records replace Cloudflare's), update "Who we share data
+  with". Email Routing only receives: mail sent as support@peach33.com from
+  another service fails SPF and DMARC (`p=quarantine`) unless that service is
+  added to the SPF record and signs with DKIM for peach33.com.
+- **The website isn't proxied by Cloudflare.** The policy says GitHub Pages
+  serves the site with no cookies or scripts beyond its own. Keep the
+  website's DNS records "DNS only" (grey cloud) in Cloudflare. If they are
+  proxied, add Cloudflare to "Data the website collects" (it handles
+  visitors' IP addresses and may set security cookies), and turn off
+  Cloudflare's Email Address Obfuscation, which rewrites the pages'
+  `mailto:` links and adds a script.
 - **The waitlist promise is kept:** when someone is invited or asks to be
   removed, delete their sign-up in Formspree and its email in the mailbox.
 - **Search and weather match production.** The policy names Brave Search and
