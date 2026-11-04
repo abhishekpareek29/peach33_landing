@@ -82,11 +82,13 @@ deployment moves, update that sentence.
 
 Before publishing, the pages also depend on these being true:
 
-- **Fly.io's data processing agreement is signed.** It is not automatic: Fly
-  pre-signs it and it takes effect when the customer signs it
-  (fly.io/documents). The policy says Fly.io processes data under
-  data-processing terms with the Standard Contractual Clauses; check that the
-  signed agreement includes them.
+- **Fly.io's data processing agreement (DPA) is deferred.** The owner hasn't
+  signed it (2026-11-04: it asks for a company), so the policy relies only on
+  Fly.io's terms of service (confidentiality with reasonable safeguards) and
+  its EU-U.S. Data Privacy Framework statement (fly.io/legal/data-privacy-framework).
+  GDPR (Article 28) requires a processing contract with each processor once
+  Peach serves people in the EU or UK, so sign it (fly.io/documents) before
+  inviting testers there, then say so in "Who we share data with".
 - **Email still matches the policy.** Since 2026-11-03 peach33.com's DNS is
   on Cloudflare, and support@peach33.com is a Cloudflare Email Routing address
   that forwards to the owner's inbox. The policy names Cloudflare and calls
