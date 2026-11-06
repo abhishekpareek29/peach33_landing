@@ -138,13 +138,13 @@ Before publishing, the pages also depend on these being true:
   and the policy's "Who we share data with". Email Routing only receives: mail sent as support@peach33.com from
   another service fails SPF and DMARC (`p=quarantine`) unless that service is
   added to the SPF record and signs with DKIM for peach33.com.
-- **The website isn't proxied by Cloudflare.** The policy says GitHub Pages
-  serves the site with no cookies or scripts beyond its own. Keep the
-  website's DNS records "DNS only" (grey cloud) in Cloudflare. If they are
-  proxied, add Cloudflare to "Data the website collects" (it handles
-  visitors' IP addresses and may set security cookies), and turn off
-  Cloudflare's Email Address Obfuscation, which rewrites the pages'
-  `mailto:` links and adds a script.
+- **Cloudflare and the website.** The website's DNS records were proxied
+  through Cloudflare on 2026-11-06, so the pages say Cloudflare "may" pass the
+  site's traffic to GitHub, handle visitors' IP addresses and set a security
+  cookie: true whether the records are proxied or "DNS only" (grey cloud).
+  DNS only is simpler, and lets GitHub Pages renew its certificate. While
+  proxied, turn off Cloudflare's Email Address Obfuscation, which rewrites the
+  pages' `mailto:` links and adds a script.
 - **The waitlist promise is kept:** when someone is invited or asks to be
   removed, delete their sign-up in Formspree and its email in the mailbox.
 - **Search and weather match production.** The pages name Brave Search and
@@ -160,9 +160,12 @@ Before publishing, the pages also depend on these being true:
   calendars (Google's consent screen says so), and reads only the primary
   calendar; the policy says both, and that Peach can't change events. The
   terms point to the policy for what each connected service allows. The app's
-  Connectors screen says "Let Peach read and add calendar events"; correct it
-  before Google's OAuth verification, which compares the app, the consent
-  screen and this policy. The app has no Disconnect button yet, so the policy
+  Connectors screen says "Let Peach read and add calendar events" because the
+  owner plans to let Peach add events (2026-11-06). Before that ships, the
+  backend must ask Google for write access (`calendar.events`), and the
+  policy's Connected services section, the terms (they promise an update
+  before Peach can change a calendar) and Google's OAuth verification must
+  all say so. Until then the policy says read-only. The app has no Disconnect button yet, so the policy
   points people to their Google Account or to email; tokens revoked there are
   deleted the next time Peach tries to use them.
 - **No per-account machines.** Each user's assistant has run inside the shared
