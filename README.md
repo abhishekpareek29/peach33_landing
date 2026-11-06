@@ -6,6 +6,9 @@ Hosted on GitHub Pages at `peach33.com`. No framework, dependencies, or build st
 ## Files
 
 - `index.html` — navigation, hero, the demo video, the six "What Peach does" rows, the business team, two waitlist forms, and footer.
+- `privacy.html` — privacy policy, served at `/privacy`.
+- `terms.html` — terms of service, served at `/terms`.
+- `providers.html` — the privacy policy's list of service providers, served at `/providers`.
 - `tokens.css` — colors, type sizes, spacing, radii, and shadows from the Peach33 design handoff. Unchanged; do not edit.
 - `styles.css` — fonts, the app's shape language, responsive layouts, and the app-screen illustrations.
 - `script.js` — mobile navigation, progressively enhanced waitlist submissions, and the hero's motion.
@@ -69,6 +72,128 @@ handoff disagree, it wins. The redesign's decisions are recorded in
   ElevenLabs plan.
 - **Footer:** the Privacy policy, Terms and Contact links return with the legal
   pages (work item #149, branch `add-privacy-terms`).
+
+## Legal pages
+
+`privacy.html`, `terms.html` and `providers.html` sit at the repository root
+so GitHub Pages serves them at the extensionless URLs `/privacy`, `/terms` and
+`/providers`; the app links to the first two. Their canonical URLs are the
+extensionless ones. They reuse the landing page's header (which `script.js`
+requires), with nav links pointing back to the homepage's `/#…` sections.
+Every section keeps a stable `id` so the app and other pages can
+link to it, for example `/privacy#ai-processing` or `/privacy#deletion`. The
+ids were last restructured before the pages were first published; once they
+are live, never rename or remove one.
+
+In the pages, the product is "Peach"; "Peach33" is the operator ("we", "us")
+and the business that could be transferred.
+
+Text in `[[DOUBLE BRACKETS]]` is a placeholder the owner must fill in before
+the pages are published (work item #149). When the privacy policy or the terms
+change, update its "Effective and last updated" date; when the providers page
+changes, update its "Last updated" date.
+
+### Keeping the pages current
+
+The pages were restructured on 2026-11-04, after comparable assistants (Cue by
+Manus, Muse from Meta, Town), so they don't need rewriting for every feature:
+
+- The privacy policy describes data by kind (account details, what you share
+  and what Peach does for you, settings and activity, location, connected
+  services, notifications, technical data). Features are examples. Update the
+  policy before a feature collects a new kind of data, uses data for a new
+  purpose, or shares it with a new kind of recipient. Examples: a new
+  connected service such as email, actions in other accounts, or a sign-in
+  method that shares more than an email address.
+- The companies themselves are listed on `providers.html`, which the policy
+  and terms link to. When a provider is added, replaced or removed, or what
+  one receives changes, update that page and its date. If a new provider
+  receives a new kind of data, update the policy too.
+- The terms describe abilities and approvals generally, and say that features
+  may come with additional terms shown before use. Update the terms before
+  Peach can act in someone's other accounts (for example changing a calendar,
+  sending messages or making purchases), as they promise.
+- Never describe a feature as "not available yet": such sentences go stale.
+
+All placeholders were filled with the owner's answers on 2026-11-03. The
+Azure deployment is in Virginia (the owner gave "IAD"); "Where data is
+processed" also says Microsoft may use another Azure region to manage
+capacity, which Microsoft documents for every deployment type. If the
+deployment moves, update that sentence.
+
+Before publishing, the pages also depend on these being true:
+
+- **Fly.io's data processing agreement (DPA) is deferred.** The owner hasn't
+  signed it (2026-11-04: it asks for a company), so the policy relies only on
+  Fly.io's terms of service (confidentiality with reasonable safeguards) and
+  its EU-U.S. Data Privacy Framework statement (fly.io/legal/data-privacy-framework).
+  GDPR (Article 28) requires a processing contract with each processor once
+  Peach serves people in the EU or UK, so sign it (fly.io/documents) before
+  inviting testers there, then say so in "Who we share data with".
+- **Email still matches the policy.** Since 2026-11-03 peach33.com's DNS is
+  on Cloudflare, and support@peach33.com is a Cloudflare Email Routing address
+  that forwards to the owner's inbox. The policy names Cloudflare and calls
+  the inbox's host "our email provider". If mail moves (for example to Google
+  Workspace, whose MX records replace Cloudflare's), update `providers.html`
+  and the policy's "Who we share data with". Email Routing only receives: mail sent as support@peach33.com from
+  another service fails SPF and DMARC (`p=quarantine`) unless that service is
+  added to the SPF record and signs with DKIM for peach33.com.
+- **The website isn't proxied by Cloudflare.** The policy says GitHub Pages
+  serves the site with no cookies or scripts beyond its own. Keep the
+  website's DNS records "DNS only" (grey cloud) in Cloudflare. If they are
+  proxied, add Cloudflare to "Data the website collects" (it handles
+  visitors' IP addresses and may set security cookies), and turn off
+  Cloudflare's Email Address Obfuscation, which rewrites the pages'
+  `mailto:` links and adds a script.
+- **The waitlist promise is kept:** when someone is invited or asks to be
+  removed, delete their sign-up in Formspree and its email in the mailbox.
+- **Search and weather match production.** The pages name Brave Search and
+  Microsoft's web search for Azure (Bing), and weather lookups through Brave
+  and the US National Weather Service. They describe #256 part 2 (backend
+  pull request #264) as live: Brave gets the city, region and country of the
+  last known location, or else the time zone's country, and the National
+  Weather Service gets the stored rounded coordinates for "weather here" in
+  the US. If production adds another provider, or `WEATHER_ENABLED` changes,
+  update `providers.html` and the policy's "Who we share data with".
+- **Google Calendar wording agrees.** The backend asks Google only for
+  `calendar.events.readonly`, which lets it view events on all the user's
+  calendars (Google's consent screen says so), and reads only the primary
+  calendar; the policy says both, and that Peach can't change events. The
+  terms point to the policy for what each connected service allows. The app's
+  Connectors screen says "Let Peach read and add calendar events"; correct it
+  before Google's OAuth verification, which compares the app, the consent
+  screen and this policy. The app has no Disconnect button yet, so the policy
+  points people to their Google Account or to email; tokens revoked there are
+  deleted the next time Peach tries to use them.
+- **No per-account machines.** Each user's assistant has run inside the shared
+  service since backend #169 and #170. The pages say so; don't reintroduce
+  "its own machine". The draft homepage on `add-privacy-terms` still says
+  "on its own private machine" (hero, FAQ, privacy row); the live homepage on
+  `main` doesn't, so keep `main`'s wording when merging the two.
+- **Abilities start on.** Every ability starts on (owner decision,
+  2026-10-27) and users can turn each off, so the pages never say users turn
+  abilities on. Web search and weather reach Brave by default.
+- **Email providers aren't named.** `providers.html` lists "our email
+  providers" by role: the inbox Cloudflare forwards to, and the SMTP service
+  that sends sign-in codes and invitations. Name them there once settled.
+- **No "Connected tools" servers are enabled.** Before enabling one, add its
+  provider and what it receives to `providers.html`.
+
+Pushing `main` deploys, so before merging run this and expect no output:
+
+```sh
+grep -n '\[\[' index.html privacy.html terms.html providers.html
+```
+
+Optional features are described conditionally ("if you allow notifications",
+"if you share your location", "if you connect"), so the policy stays accurate
+before and after the server offers them.
+
+Every page's footer carries Privacy policy (`/privacy`), Terms (`/terms`) and
+Contact (`mailto:support@peach33.com`). On desktop they sit to the right of
+`© 2026`; below 1024px they wrap onto a second row. On the legal pages, mark
+the current page's link with `aria-current="page"`. Keep the header's
+navigation the same as the homepage's.
 
 ## Fonts
 

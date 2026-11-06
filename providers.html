@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Service providers · Peach</title>
+  <meta name="description" content="The companies that handle personal data for Peach and peach33.com, what each does and what it receives.">
+  <meta property="og:title" content="Service providers · Peach">
+  <meta property="og:description" content="The companies that handle personal data for Peach and peach33.com, what each does and what it receives.">
+  <meta property="og:url" content="https://peach33.com/providers">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Peach">
+  <meta name="theme-color" content="#fffaeb">
+  <link rel="canonical" href="https://peach33.com/providers">
+  <link rel="icon" href="assets/favicon.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/arimo-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/fredoka-600.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <svg class="icon-sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+  </svg>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header id="top" class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="Peach home">
+        <picture>
+          <source media="(min-width: 1024px)" srcset="assets/peach-mascot.svg">
+          <img class="brand-mark" src="assets/peach-mascot-small.svg" alt="" width="40" height="40">
+        </picture>
+        <span class="wordmark">pe<span class="wordmark-a">a</span>ch</span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="section-nav" aria-expanded="false" hidden>
+        <svg class="menu-icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="#i-menu"/></svg>
+        <svg class="close-icon" width="22" height="22" aria-hidden="true" focusable="false"><use href="#i-close"/></svg>
+      </button>
+
+      <nav id="section-nav" class="section-nav" aria-label="Main navigation">
+        <a href="/#does">What it does</a>
+        <a href="/#business">For business</a>
+      </nav>
+
+      <a class="button nav-cta" href="/#waitlist" aria-label="Join the waitlist">
+        <span class="nav-label-full">Join the waitlist</span>
+        <span class="nav-label-short" aria-hidden="true">Join</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="main" class="legal" tabindex="-1">
+    <div class="container">
+      <article class="legal-article" aria-labelledby="legal-title">
+        <header class="legal-header">
+          <p class="eyebrow-pill"><span class="eyebrow-dot" aria-hidden="true"></span>Last updated November 4, 2026</p>
+          <h1 id="legal-title">Service providers</h1>
+          <p class="legal-intro">The companies that handle personal data for Peach and the peach33.com website, what each does, and what it receives. This page is part of our <a href="/privacy">Privacy policy</a>, and we update it when a provider changes.</p>
+        </header>
+
+        <section id="running-peach" class="legal-section" aria-labelledby="running-peach-title">
+          <h2 id="running-peach-title">Running Peach</h2>
+          <ul>
+            <li><span>Microsoft Azure</span> runs the AI models that understand your requests and write Peach’s replies, describe images and create embeddings of your documents. It receives your messages and the content each request needs (see <a href="/privacy#ai-processing">AI processing by Microsoft Azure</a>). United States (Virginia); Microsoft may process a request in another Azure region to manage capacity.</li>
+            <li><span>Fly.io</span> hosts our service, which runs your assistant, our database and its backups, and our server logs, so it stores all the data our service keeps. United States (Ashburn, Virginia).</li>
+          </ul>
+        </section>
+
+        <section id="search-and-weather" class="legal-section" aria-labelledby="search-and-weather-title">
+          <h2 id="search-and-weather-title">Web search and weather</h2>
+          <p>Used when Peach searches the web or looks up the weather, abilities you can turn off in the app. Our servers send the requests, so these services see our server’s address rather than yours.</p>
+          <ul>
+            <li><span>Brave Search</span> runs Peach’s web searches and weather lookups. It receives the search terms Peach writes and, so that results are local, the city, region and country of your last known location if you share your location, or otherwise just the country of your time zone. Its weather reports use OpenWeatherMap data.</li>
+            <li><span>Microsoft Bing</span> runs Peach’s web searches instead if we use Microsoft’s web search for Azure. It receives the search terms Peach writes, under Microsoft’s own terms and the Microsoft Privacy Statement rather than the data-processing terms that cover Azure, and may process them outside the region our Azure service runs in.</li>
+            <li><span>US National Weather Service</span> (api.weather.gov) answers weather lookups for places in the United States. It receives the place’s approximate coordinates, including your stored location’s rounded coordinates when you ask about the weather where you are.</li>
+          </ul>
+        </section>
+
+        <section id="apple" class="legal-section" aria-labelledby="apple-title">
+          <h2 id="apple-title">Apple</h2>
+          <ul>
+            <li><span>TestFlight</span> distributes the beta. Apple handles your invitation and installation under its own privacy policy and makes certain beta information available to us, such as the email address you were invited with (if we invited you by email), install and session counts, crash reports, and any feedback or screenshots you choose to send through TestFlight.</li>
+            <li><span>Apple Push Notification service</span> delivers push notifications if you allow them, so it receives your push token and each notification’s fixed message, such as “Peach replied”, but never the content of your conversations.</li>
+            <li><span>Apple’s geocoding service</span> names the place you are in if you share your location, so it receives your phone’s position from iOS, under Apple’s own privacy policy.</li>
+          </ul>
+        </section>
+
+        <section id="email" class="legal-section" aria-labelledby="email-title">
+          <h2 id="email-title">Email</h2>
+          <ul>
+            <li><span>Cloudflare</span> provides peach33.com’s DNS and forwards the emails you send to support@peach33.com, and the waitlist sign-ups Formspree emails us, to our inbox.</li>
+            <li><span>Our email providers</span> host our inbox and send the emails we send you, such as invitations and sign-in codes, so they process your email address and the messages we exchange.</li>
+          </ul>
+        </section>
+
+        <section id="website" class="legal-section" aria-labelledby="website-title">
+          <h2 id="website-title">The peach33.com website</h2>
+          <ul>
+            <li><span>GitHub</span>, with its content delivery network Fastly, hosts peach33.com and logs visitors’ IP addresses for security purposes.</li>
+            <li><span>Formspree</span> runs the waitlist form. It receives the email address you enter, your IP address, browser information and the address of the page you came from, and may show a Google reCAPTCHA check if you submit the form with JavaScript turned off.</li>
+          </ul>
+        </section>
+
+        <section id="connected" class="legal-section" aria-labelledby="connected-title">
+          <h2 id="connected-title">Services you connect</h2>
+          <ul>
+            <li><span>Google</span>, if you connect Google Calendar. Google provides the calendar events you allow Peach to read, and receives our requests for them, under Google’s own terms (see <a href="/privacy#connected-accounts">Connected services</a>).</li>
+          </ul>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span class="footer-brand">
+        <img src="assets/peach-mascot-small.svg" alt="" width="24" height="24">
+        <span class="wordmark">pe<span class="wordmark-a">a</span>ch</span>
+      </span>
+      <span>© 2026</span>
+      <nav class="footer-links" aria-label="Legal and contact">
+        <a href="/privacy">Privacy policy</a>
+        <a href="/terms">Terms</a>
+        <a href="mailto:support@peach33.com">Contact</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
