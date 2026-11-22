@@ -12,8 +12,8 @@ Hosted on GitHub Pages at `peach33.com`. No framework, dependencies, or build st
 - `tokens.css` — colors, type sizes, spacing, radii, and shadows from the Peach33 design handoff. Unchanged; do not edit.
 - `styles.css` — fonts, the app's shape language, responsive layouts, and the app-screen illustrations.
 - `script.js` — mobile navigation, progressively enhanced waitlist submissions, and the hero's motion.
-- `assets/peach-mascot.svg`, `assets/peach-mascot-small.svg` — the Agent Visor mascot masters, byte-for-byte from the app repo. Use the small one wherever the mascot renders at 32px or less.
-- `assets/favicon.png`, `assets/apple-touch-icon.png` — byte-for-byte copies of the app's generated `web/favicon.png` and `web/icons/Icon-192.png`.
+- `assets/peach-mascot.svg` — the logo master, byte-for-byte from the app repo's `design/brand/peach-mascot.svg`, used at every size (see Design, "Logo").
+- `assets/favicon.png`, `assets/apple-touch-icon.png` — byte-for-byte copies of the app's generated `web/favicon.png` and `web/icons/Icon-192.png`: the logo on the app icon's black square.
 - `assets/fonts/` — self-hosted Arimo and Fredoka subsets with their OFL licences (see Fonts).
 - `assets/peach-demo.mp4`, `assets/peach-demo-poster.jpg`, `assets/peach-demo.en.vtt` — the demo video, its poster and its captions (see Demo video).
 - `CNAME` — GitHub Pages custom domain. Do not delete.
@@ -32,6 +32,13 @@ handoff disagree, it wins. The redesign's decisions are recorded in
 - **Brand:** the wordmark is a lowercase "peach" in Fredoka 600 at -0.02em with
   only the "a" in `accent`. All other text is Arimo at weight 400 (700 only for
   the names in name pills: Peach and its agents).
+- **Logo:** the Peach33 logo kit's peach, which replaced the Agent Visor
+  mascot in the app on 2026-11-20: an orange-to-red peach whose swirl wraps a
+  black band holding two cream eyes, under a green leaf. The app's vector
+  redraw, `design/brand/peach-mascot.svg`, is the one master for every size;
+  the app retired the small master. When the app's logo changes, copy the
+  master and both icons again, re-inline the hero's copy, and re-check the
+  agents' colours.
 - **Shape:** pills for buttons, fields, chips and the eyebrow; 24px cards
   (`--corner-card`); 32px panels (`--corner-panel`); circles for mascot holders
   and round buttons; 18px chat bubbles. Colours come only from `tokens.css`.
@@ -40,7 +47,9 @@ handoff disagree, it wins. The redesign's decisions are recorded in
   pill under the mascot rotates through what Peach is doing; edit the
   `activities` list in `script.js`, which names only what beta users can do.
   The mascot is the master's own geometry, inlined so CSS can animate it to the
-  app's "Chat header" spec.
+  app's "Chat header" spec. Only its ids change (the defs take a `mascot-`
+  prefix, since they share the page); the leaf and the eyes are grouped, and
+  the app painter's four typed dashes follow the eyes.
 - **Motion:** it runs only while the `motion` class is on `<html>`. The script
   sets it unless the visitor prefers reduced motion or has pressed the hero's
   pause button, and pauses the hero while it is off screen or the tab is
@@ -53,8 +62,10 @@ handoff disagree, it wins. The redesign's decisions are recorded in
   Replace them with real screenshots when those exist; keep the label.
 - **Agents:** Tico (Sales), Ashley (Accountant) and Simba (Marketing) are the
   demo's business team. Until the app has their avatars, they use the mascot
-  recoloured with the demo's CSS filters, the one exception to colours coming
-  only from `tokens.css`.
+  recoloured with CSS filters so each keeps its colour from the demo video:
+  Ashley red, Tico green, Simba pink. The filters are the one exception to
+  colours coming only from `tokens.css`. Tico's was retuned for the new logo,
+  on which the demo's own filter turned him olive.
 - **Features not live yet:** the page describes Peach as the demo shows it,
   without "Coming soon" pills, and has no privacy or FAQ section (the owner's
   call, November 2026). Only the hero's "Soon, it can staff your business
