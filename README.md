@@ -13,7 +13,8 @@ Hosted on GitHub Pages at `peach33.com`. No framework, dependencies, or build st
 - `styles.css` — fonts, the app's shape language, responsive layouts, and the app-screen illustrations.
 - `script.js` — mobile navigation, progressively enhanced waitlist submissions, and the hero's motion.
 - `assets/peach-mascot.svg` — the logo master, byte-for-byte from the app repo's `design/brand/peach-mascot.svg`, used at every size (see Design, "Logo").
-- `assets/favicon.png`, `assets/apple-touch-icon.png` — byte-for-byte copies of the app's generated `web/favicon.png` and `web/icons/Icon-192.png`: the logo on the app icon's black square.
+- `assets/favicon.svg`, `assets/favicon.png` — the tab icon: the logo master on a transparent ground, framed tight, so the tab's own colour shows around it. The 32px PNG is for browsers without SVG favicons (see Favicon).
+- `assets/apple-touch-icon.png` — a byte-for-byte copy of the app's generated `web/icons/Icon-192.png`: the logo on the app icon's black square (iOS would show a transparent ground as black anyway).
 - `assets/fonts/` — self-hosted Arimo and Fredoka subsets with their OFL licences (see Fonts).
 - `assets/peach-demo.mp4`, `assets/peach-demo-poster.jpg`, `assets/peach-demo.en.vtt` — the demo video, its poster and its captions (see Demo video).
 - `CNAME` — GitHub Pages custom domain. Do not delete.
@@ -37,8 +38,8 @@ handoff disagree, it wins. The redesign's decisions are recorded in
   black band holding two cream eyes, under a green leaf. The app's vector
   redraw, `design/brand/peach-mascot.svg`, is the one master for every size;
   the app retired the small master. When the app's logo changes, copy the
-  master and both icons again, re-inline the hero's copy, and re-check the
-  agents' colours.
+  master and the touch icon again, regenerate the favicons (see Favicon),
+  re-inline the hero's copy, and re-check the agents' colours.
 - **Shape:** pills for buttons, fields, chips and the eyebrow; 24px cards
   (`--corner-card`); 32px panels (`--corner-panel`); circles for mascot holders
   and round buttons; 18px chat bubbles. Colours come only from `tokens.css`.
@@ -48,12 +49,14 @@ handoff disagree, it wins. The redesign's decisions are recorded in
   `activities` list in `script.js`, which names only what beta users can do.
   The mascot is the master's own geometry, inlined so CSS can animate it to the
   app's "Chat header" spec. Only its ids change (the defs take a `mascot-`
-  prefix, since they share the page); the leaf and the eyes are grouped, and
-  the app painter's four typed dashes follow the eyes.
+  prefix, since they share the page), and the leaf and the eyes are grouped.
+  It leaves out the app's typed dashes under the eyes (owner's call,
+  2026-11-22): the eyes still read and blink, and the leaf still sways.
 - **Motion:** it runs only while the `motion` class is on `<html>`. The script
   sets it unless the visitor prefers reduced motion or has pressed the hero's
   pause button, and pauses the hero while it is off screen or the tab is
-  hidden. Without motion the mascot holds the app's still working pose.
+  hidden. Without motion the mascot holds the app's still working pose, eyes
+  squinted, without the dashes.
 - **App screens:** the phones are HTML illustrations of app screens
   (`role="img"` with a one-line label), built at the app's 390×844 size and
   scaled with `zoom`. The first three rows show real app screens; the errand
@@ -231,6 +234,30 @@ done
 
 The licences are copied unchanged: `Fredoka-OFL.txt` as `OFL-Fredoka.txt` and
 `OFL.txt` (Arimo) as `OFL-Arimo.txt`.
+
+## Favicon
+
+Tabs show `assets/favicon.svg`, or `assets/favicon.png` in browsers without
+SVG favicons. Both are the logo master on a transparent ground, so the tab's
+own colour shows around the peach, framed tight (`viewBox="10 10 100 100"`)
+so it fills the icon. The app's own favicon, the logo on a black square, isn't
+used here. To regenerate both from the master, with the app repo beside this
+one and its `node_modules` installed (`npm ci` there), run this from this
+repository's root:
+
+```sh
+APP=../personal-assistant-mobile
+sed 's/viewBox="0 0 120 120"/viewBox="10 10 100 100"/' assets/peach-mascot.svg > assets/favicon.svg
+node -e '
+  const { Resvg } = require(require("path").resolve(process.argv[1], "node_modules/@resvg/resvg-js"));
+  const fs = require("fs");
+  const svg = fs.readFileSync("assets/favicon.svg", "utf8");
+  fs.writeFileSync("assets/favicon.png", new Resvg(svg, { fitTo: { mode: "width", value: 32 }, font: { loadSystemFonts: false } }).render().asPng());
+' "$APP"
+```
+
+It renders with the app's pinned `@resvg/resvg-js`, the renderer of the app's
+own icons, so the PNG comes out the same on every run.
 
 ## Preview
 

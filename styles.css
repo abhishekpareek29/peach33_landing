@@ -378,19 +378,15 @@ svg use { fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: 
   color: var(--white);
 }
 
-/* The mascot's still pose: the app's working pose with motion off (eyes squinted, all four dashes).
+/* The mascot's still pose: the app's working pose with motion off (eyes squinted), without the
+   app's typed dashes under the eyes, which the site leaves out.
    In the master's 120-unit space, the leaf turns about its base and the eyes about their centre. */
 .mascot-leaf { transform-box: view-box; transform-origin: 62.37px 38.56px; }
 .mascot-eyes { transform-box: view-box; transform-origin: 63.975px 66.78px; transform: scaleY(0.8); }
-.mascot-dash { opacity: 0.95; }
 
-/* The working animation (the app's "Chat header" spec), only while motion is on. */
+/* The working animation (the app's "Chat header" spec, minus the dashes), only while motion is on. */
 .motion .hero .mascot-leaf { animation: mascot-sway 1.6s ease-in-out infinite alternate; }
 .motion .hero .mascot-eyes { animation: mascot-read 2.4s infinite; }
-.motion .hero .mascot-dash-1 { animation: mascot-dash-1 2.4s step-end infinite; }
-.motion .hero .mascot-dash-2 { animation: mascot-dash-2 2.4s step-end infinite; }
-.motion .hero .mascot-dash-3 { animation: mascot-dash-3 2.4s step-end infinite; }
-.motion .hero .mascot-dash-4 { animation: mascot-dash-4 2.4s step-end infinite; }
 .hero.is-offscreen * { animation-play-state: paused !important; }
 
 @keyframes mascot-sway { from { transform: rotate(-3deg); } to { transform: rotate(3deg); } }
@@ -401,11 +397,6 @@ svg use { fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: 
   83% { transform: translateX(4px) scaleY(0.12); animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1); }
   88%, 100% { transform: translateX(-4px) scaleY(0.8); }
 }
-
-@keyframes mascot-dash-1 { 0% { opacity: 0; } 10% { opacity: 0.95; } 85% { opacity: 0; } }
-@keyframes mascot-dash-2 { 0% { opacity: 0; } 28% { opacity: 0.95; } 85% { opacity: 0; } }
-@keyframes mascot-dash-3 { 0% { opacity: 0; } 46% { opacity: 0.95; } 85% { opacity: 0; } }
-@keyframes mascot-dash-4 { 0% { opacity: 0; } 64% { opacity: 0.95; } 85% { opacity: 0; } }
 
 /* Floating peaches: the app's welcome-screen circles, each holding the mascot at half its size. */
 .float-peach {
